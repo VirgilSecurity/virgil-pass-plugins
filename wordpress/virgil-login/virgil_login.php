@@ -22,7 +22,7 @@ class virgil_login extends virgil_core {
 
     /**
      * Singleton method
-     * @return null|VirgilAuthentication
+     * @return null|virgil_login
      */
     public static function getInstance() {
 
@@ -197,7 +197,7 @@ class virgil_login extends virgil_core {
             }
 
             $this->setIncludePath();
-            if (!class_exists('VirgilAuthClient')) {
+            if (!class_exists('virgil_auth_client')) {
                 require_once('core/virgil_auth_client.php' );
             }
 
@@ -229,7 +229,7 @@ class virgil_login extends virgil_core {
             do_action('wp_login', $user['user_login']);
 
             //redirect to home page after logging in (i.e. don't show content of www.site.com/?p=1234 )
-            wp_redirect( home_url() );
+            wp_redirect(home_url());
             exit;
 
         }
