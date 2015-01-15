@@ -13,10 +13,19 @@ class virgil_auth_client {
     const DELETE = 'DELETE';
 
     /**
-     * Virgil Auth service
-     * @var string
+     * Plugin options
+     * @var array
      */
-   const SERVICE_URL = 'https://auth.virgilsecurity.com';
+    protected $options = array();
+
+    /**
+     * Virgil Auth Constructor
+     * @param $options
+     */
+    public function __construct($options) {
+
+        $this->options = $options;
+    }
 
     /**
      * Curl call
@@ -26,12 +35,12 @@ class virgil_auth_client {
      * @param null $data
      * @return array|bool|mixed
      */
-    protected static function call($url, $method, $data = null) {
+    protected function call($url, $method, $data = null) {
 
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($ch, CURLOPT_URL, self::SERVICE_URL . $url);
+        curl_setopt($ch, CURLOPT_URL, $this->options['auth_url'] . $url);
         curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
@@ -48,9 +57,9 @@ class virgil_auth_client {
      * @param $token
      * @return mixed
      */
-    public static function verify_token($token) {
+    public function verify_token($token) {
 
-        $result = self::call(sprintf('/verify-token/%s', $token), self::GET);
+        $result = $this->call(sprintf('/verify-token/%s', $token), self::GET);
         return $result['is_active'];
     }
 
@@ -59,9 +68,9 @@ class virgil_auth_client {
      * @param $token
      * @return array|bool|mixed
      */
-    public static function get_user_info_by_token($token) {
+    public function get_user_info_by_token($token) {
 
-        $result = self::call(sprintf('/token/%s/info', $token), self::GET);
+        $result = $this->call(sprintf('/token/%s/info', $token), self::GET);
         if(!$result) {
             return false;
         }

@@ -18,6 +18,10 @@ class virgil_login extends virgil_core {
     // Singleton
     private static $instance = null;
 
+    // Plugin options
+    protected $options = array();
+
+    //
     private $doneIncludePath = false;
 
     /**
@@ -39,6 +43,8 @@ class virgil_login extends virgil_core {
 
         $this->add_actions();
         $this->add_hooks();
+
+        $this->options = $this->get_plugin_options();
     }
 
     /**
@@ -58,6 +64,17 @@ class virgil_login extends virgil_core {
 
         add_filter('login_redirect', array($this, 'login_redirect'), 5, 3 );
         add_filter('plugin_action_links', array($this, 'plugin_action_links'), 2, 2);
+    }
+
+    /**
+     * Initialize frontend part
+     */
+    public function init() {
+
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('virgil_sdk', 'https://auth-demo.virgilsecurity.com/js/sdk.js');
+
+        wp_enqueue_style('front_css', $this->get_plugin_url() . '/css/front.css');
     }
 
     /**
@@ -84,28 +101,15 @@ class virgil_login extends virgil_core {
     }
 
     /**
-     * Initialize frontend part
-     */
-    public function init() {
-
-        wp_enqueue_script('jquery');
-        wp_enqueue_script('virgil_sdk', 'https://auth-demo.virgilsecurity.com/js/sdk.js');
-
-        wp_enqueue_style('front_css', $this->get_plugin_url() . '/css/front.css');
-    }
-
-    /**
      * Create login HTML code.
      * Append in to the Wordpress HTML structure
      */
     public function create_login_form() {
 
-        $options = $this->get_plugin_options();
-
         echo '
         <p class="virgil-login">
             <a href="https://auth-demo.virgilsecurity.com/uploads/virgil-chrome.zip">Download Virgil Extension</a>
-            <button data-virgil-ui="auth-btn" data-virgil-reference="' . $options['redirect_url'] . '">Virgil Auth</button>
+            <button data-virgil-ui="auth-btn" data-virgil-reference="' . $this->options['redirect_url'] . '">Virgil Auth</button>
         </p>';
 
         wp_enqueue_script('login', $this->get_plugin_url() . '/js/login.js');
@@ -140,22 +144,29 @@ class virgil_login extends virgil_core {
 
         wp_enqueue_style('admin_css', $this->get_plugin_url() . 'css/admin.css');
 
-        $options = $this->get_plugin_options();
-
         ?>
         <div class="wrap">
             <h2>Virgil Auth Settings</h2>
             <form method="post" action="options.php">
                 <? settings_fields($this->get_settings_pagename()) ?>
-                <? echo '<label for="virgil_redirect_url" class="textinput big">Redirect URL:</label>'; ?>
-                <? echo "<input id='virgil_redirect_url' class='textinput' name='" . $this->get_options_name() . "[redirect_url]' size='68' type='text' value='" . $options['redirect_url'] . "' />"; ?>
+                <label for="virgil_redirect_url" class="textinput big">Redirect URL:</label>
+                <input id="virgil_redirect_url" class="textinput" name="<?=$this->get_options_name()?>[redirect_url]" size="68" type="text" value="<?=$this->options['redirect_url']?>"/>
                 <br class="clear" />
+                <p class="desc big">URL where the system is redirected after successful authentication</p>
+                <label for="virgil_sdk_url" class="textinput big">Virgil SDK URL:</label>
+                <input id="virgil_sdk_url" class="textinput" name="<?=$this->get_options_name()?>[sdk_url]" size="68" type="text" value="<?=$this->options['sdk_url']?>" />
+                <br class="clear" />
+                <p class="desc big">Virgil JavaScript SDK URL</p>
+                <label for="virgil_auth_url" class="textinput big">Virgil Auth URL:</label>
+                <input id="virgil_auth_url" class="textinput" name="<?=$this->get_options_name()?>[auth_url]" size="68" type="text" value="<?=$this->options['auth_url']?>" />
+                <br class="clear" />
+                <p class="desc big">Virgil Authentication service URL</p>
                 <p class="submit">
                     <input type="submit" value="Save Changes" class="button button-primary" id="submit" name="submit">
                 </p>
             </form>
-        </div>
-        <?php
+        </div>'
+        <?
     }
 
     /**
@@ -199,21 +210,22 @@ class virgil_login extends virgil_core {
             $this->setIncludePath();
             if (!class_exists('virgil_auth_client')) {
                 require_once('core/virgil_auth_client.php' );
+                $virgil_auth_client = new virgil_auth_client($this->options);
             }
 
-            if(!virgil_auth_client::verify_token($token)) {
+            if(!$virgil_auth_client->verify_token($token)) {
                 $error = new WP_Error('virgil_wrong_token', "Virgil token was incorrect or has expired.");
                 return $this->displayAndReturnError($error);
             }
 
-            if(($userInfo = virgil_auth_client::get_user_info_by_token($token)) == false) {
+            if(($userInfo = $virgil_auth_client->get_user_info_by_token($token)) == false) {
                 $error = new WP_Error('virgil_user_not_found', "User was not found by Virgil auth token.");
                 return $this->displayAndReturnError($error);
             }
 
             // If everything fine, then register new user or log in.
             $userName = $userInfo['first_name'] . ' ' . $userInfo['last_name'];
-            if (!username_exists($userName) and email_exists($userInfo['email']) == false) {
+            if (!username_exists($userName) && email_exists($userInfo['email']) == false) {
                 $password = wp_generate_password($length = 12, $include_standard_special_chars = false);
                 wp_create_user($userName, $password, $userInfo['email']);
             }
@@ -243,12 +255,10 @@ class virgil_login extends virgil_core {
             $user = get_user_by('email', $_GET['email']);
             if($user) {
 
-                $options = $this->get_plugin_options();
-
                 echo '
                 <p class="virgil-login">
                     <a href="https://auth-demo.virgilsecurity.com/uploads/virgil-chrome.zip">Download Virgil Extension</a>
-                    <button data-virgil-ui="auth-btn" data-virgil-reference="' . $options['redirect_url'] . '">Virgil Auth</button>
+                    <button data-virgil-ui="auth-btn" data-virgil-reference="' . $this->options['redirect_url'] . '">Virgil Auth</button>
                 </p>
 
                 <p class="message virgil-message">

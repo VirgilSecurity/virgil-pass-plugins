@@ -21,3 +21,13 @@ label.big {
     font-size: 1.3em;
     padding-top: 8px;
 }
+
+p.desc {
+    font-style: italic;
+    margin: 6px 0 10px;
+    padding: 0 0 8px 22px;
+}
+
+p.desc.big {
+    padding-left: 180px;
+}

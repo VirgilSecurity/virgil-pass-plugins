@@ -26,12 +26,15 @@ class virgil_core {
     }
 
     /**
-     * Default Admin page settings
+     * Default Plugin options
      * @return array
      */
     public function get_default_options() {
+
         return array(
-            'redirect_url' => get_option('siteurl') . '/wp-login.php?token={{virgilToken}}'
+            'redirect_url' => get_option('siteurl') . '/wp-login.php?token={{virgilToken}}',
+            'sdk_url'      => 'https://auth-demo.virgilsecurity.com/js/sdk.js',
+            'auth_url'     => 'https://auth.virgilsecurity.com'
         );
     }
 
