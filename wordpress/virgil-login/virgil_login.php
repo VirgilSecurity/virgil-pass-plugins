@@ -148,25 +148,25 @@ class virgil_login extends virgil_core {
         <div class="wrap">
             <h2>Virgil Auth Settings</h2>
             <form method="post" action="options.php">
-                <? settings_fields($this->get_settings_pagename()) ?>
+                <?php settings_fields($this->get_settings_pagename()) ?>
                 <label for="virgil_redirect_url" class="textinput big">Redirect URL:</label>
-                <input id="virgil_redirect_url" class="textinput" name="<?=$this->get_options_name()?>[redirect_url]" size="68" type="text" value="<?=$this->options['redirect_url']?>"/>
+                <input id="virgil_redirect_url" class="textinput" name="<?php echo $this->get_options_name()?>[redirect_url]" size="68" type="text" value="<?php echo $this->options['redirect_url']?>"/>
                 <br class="clear" />
                 <p class="desc big">URL where the system is redirected after successful authentication</p>
                 <label for="virgil_sdk_url" class="textinput big">Virgil SDK URL:</label>
-                <input id="virgil_sdk_url" class="textinput" name="<?=$this->get_options_name()?>[sdk_url]" size="68" type="text" value="<?=$this->options['sdk_url']?>" />
+                <input id="virgil_sdk_url" class="textinput" name="<?php echo$this->get_options_name()?>[sdk_url]" size="68" type="text" value="<?php echo$this->options['sdk_url']?>" />
                 <br class="clear" />
                 <p class="desc big">Virgil JavaScript SDK URL</p>
                 <label for="virgil_auth_url" class="textinput big">Virgil Auth URL:</label>
-                <input id="virgil_auth_url" class="textinput" name="<?=$this->get_options_name()?>[auth_url]" size="68" type="text" value="<?=$this->options['auth_url']?>" />
+                <input id="virgil_auth_url" class="textinput" name="<?php echo$this->get_options_name()?>[auth_url]" size="68" type="text" value="<?php echo$this->options['auth_url']?>" />
                 <br class="clear" />
                 <p class="desc big">Virgil Authentication service URL</p>
                 <p class="submit">
                     <input type="submit" value="Save Changes" class="button button-primary" id="submit" name="submit">
                 </p>
             </form>
-        </div>'
-        <?
+        </div>
+        <?php
     }
 
     /**
