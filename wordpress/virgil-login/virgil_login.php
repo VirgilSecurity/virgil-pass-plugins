@@ -154,11 +154,11 @@ class virgil_login extends virgil_core {
                 <br class="clear" />
                 <p class="desc big">URL where the system is redirected after successful authentication</p>
                 <label for="virgil_sdk_url" class="textinput big">Virgil SDK URL:</label>
-                <input id="virgil_sdk_url" class="textinput" name="<?php echo$this->get_options_name()?>[sdk_url]" size="68" type="text" value="<?php echo$this->options['sdk_url']?>" />
+                <input id="virgil_sdk_url" class="textinput" name="<?php echo $this->get_options_name()?>[sdk_url]" size="68" type="text" value="<?php echo $this->options['sdk_url']?>" />
                 <br class="clear" />
                 <p class="desc big">Virgil JavaScript SDK URL</p>
                 <label for="virgil_auth_url" class="textinput big">Virgil Auth URL:</label>
-                <input id="virgil_auth_url" class="textinput" name="<?php echo$this->get_options_name()?>[auth_url]" size="68" type="text" value="<?php echo$this->options['auth_url']?>" />
+                <input id="virgil_auth_url" class="textinput" name="<?php echo $this->get_options_name()?>[auth_url]" size="68" type="text" value="<?php echo $this->options['auth_url']?>" />
                 <br class="clear" />
                 <p class="desc big">Virgil Authentication service URL</p>
                 <p class="submit">
@@ -166,7 +166,7 @@ class virgil_login extends virgil_core {
                 </p>
             </form>
         </div>
-        <?php
+    <?php
     }
 
     /**
