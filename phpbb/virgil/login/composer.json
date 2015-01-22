@@ -1,0 +1,32 @@
+{
+	"name": "virgil/login",
+	"type": "phpbb-extension",
+	"description": "Virgil Login extension",
+	"homepage": "https://https://virgilsecurity.com",
+	"version": "1.0",
+	"keywords": ["phpBB", "Extension", "Virgil Login"],
+	"license": "GPL-2.0",
+	"authors": [
+		{
+			"name": "Virgil Login",
+			"email": "support@virgilsecurity.com",
+			"homepage": "http://www.virgilsecurity.com/",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": ""
+	},
+	"require": {
+		"php": ">=5.0.0"
+	},
+	"provide": {
+		 "phpbb/phpbb": "3.1.0-RC3"
+	}	,
+	"extra": {
+		"display-name": "Virgil Login",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+		}
+	}
+}
