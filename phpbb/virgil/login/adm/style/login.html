@@ -1,16 +1,13 @@
 <!-- INCLUDE overall_header.html -->
 
-<script type="text/javascript" src="../ext/virgil/login/adm/style/js/jquery-1.11.0.min.js"></script>
-<script type="text/javascript" src="../ext/virgil/login/adm/style/js/admin.js"></script>
 <link rel="stylesheet" type="text/css" href="../ext/virgil/login/adm/style/css/admin.css">
-
 
 <div id="oneall_sociallogin">
 
-	<!-- IF OA_SOCIAL_LOGIN_SETTINGS_SAVED -->
+	<!-- IF VIRGIL_LOGIN_SETTINGS_SAVED -->
 		<div class="successbox">
 			<h3>Information</h3>
-			<p>{L_OA_SOCIAL_LOGIN_SETTNGS_UPDATED}</p>
+			<p>{L_VIRGIL_LOGIN_SETTNGS_UPDATED}</p>
 		</div>
 	<!-- ENDIF -->
 	
@@ -22,7 +19,7 @@
 	<!-- ENDIF -->
 
 	<form id="oneall_social_login_form" method="post" action="{U_ACTION}">
-	
+
 		<fieldset>
 			<legend>{L_VIRGIL_LOGIN_DO_ENABLE}</legend>
 			<dl>
@@ -36,7 +33,7 @@
 				</dd>
 			</dl>
 		</fieldset>
-		
+
 		<fieldset>
 			<legend>{L_VIRGIL_LOGIN_SETTINGS}</legend>
 				<dl>
@@ -44,7 +41,7 @@
 						<label for="virgil_login_redirect_url">{L_VIRGIL_LOGIN_REDIRECT_URL}</label>
 					</dt>
 					<dd>
-						<input type="text" id="virgil_login_redirect_url" name="virgil_login_redirect_url" value="{VIRGIL_LOGIN_REDIRECT_URL}"  size="60" />
+						<input type="text" id="virgil_login_redirect_url" name="virgil_login_redirect_url" value="{VIRGIL_LOGIN_REDIRECT_URL}"  size="80" />
 					</dd>
 				</dl>
 				<dl>
@@ -52,7 +49,7 @@
 						<label for="virgil_login_sdk_url">{L_VIRGIL_LOGIN_SDK_URL}</label>
 					</dt>
 					<dd>
-						<input type="text" id="virgil_login_sdk_url" name="virgil_login_sdk_url" value="{VIRGIL_LOGIN_SDK_URL}"  size="60" />
+						<input type="text" id="virgil_login_sdk_url" name="virgil_login_sdk_url" value="{VIRGIL_LOGIN_SDK_URL}"  size="80" />
 					</dd>
 				</dl>
 				<dl>
@@ -60,11 +57,11 @@
 						<label for="virgil_login_auth_url">{L_VIRGIL_LOGIN_AUTH_URL}</label>
 					</dt>
 					<dd>
-						<input type="text" id="virgil_login_auth_url" name="virgil_login_auth_url" value="{VIRGIL_LOGIN_AUTH_URL}"  size="60" />
+						<input type="text" id="virgil_login_auth_url" name="virgil_login_auth_url" value="{VIRGIL_LOGIN_AUTH_URL}"  size="80" />
 					</dd>
 				</dl>
 		</fieldset>
-		
+
 		<fieldset class="submit-buttons">
 			<input class="button1" type="submit" id="submit" name="submit" value="{L_SUBMIT}" />
 			{S_FORM_TOKEN}

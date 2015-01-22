@@ -102,7 +102,7 @@ class listener implements EventSubscriberInterface
 			if ( empty ($this->user->data['user_id']) || $this->user->data['user_id'] == ANONYMOUS)
 			{
 				// Embed on the login page
-				if (request_var ('mode', '') == 'login')
+				if ($this->request->variable ('mode', '') == 'login')
 				{
 					// Can be changed in the social login settings.
 					if (empty ($this->config ['virgil_login_page_disable']))
@@ -121,9 +121,9 @@ class listener implements EventSubscriberInterface
 	public function check_callback ()
 	{
 		// These values are returned by OneAll
-		if (strlen ((request_var ('oa_action', ''))) > 0 && strlen (request_var ('connection_token', '')) > 0)
+		if (strlen (($this->request->variable ('oa_action', ''))) > 0 && strlen ($this->request->variable ('connection_token', '')) > 0)
 		{
-			$virgillogin = new \virgil\login\acp\sociallogin_acp_module ();
+			$virgillogin = new \virgil\login\acp\virgil_login_acp_module ();
             $virgillogin->handle_callback ();
 		}
 	}

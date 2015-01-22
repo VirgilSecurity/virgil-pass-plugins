@@ -33,7 +33,7 @@ class m3_initial_module extends \phpbb\db\migration\migration
 					'acp',
 					'VIRGIL_LOGIN_ACP',
 					array (
-						'module_basename' => '\virgil\login\acp\sociallogin_acp_module',
+						'module_basename' => '\virgil\login\acp\virgil_login_acp_module',
 						'modes' => array (
 							'settings'
 						)
@@ -58,7 +58,7 @@ class m3_initial_module extends \phpbb\db\migration\migration
 					'ucp',
 					'OA_SOCIAL_LOGIN_LINK_UCP',
 					array (
-						'module_basename' => '\virgil\login\ucp\sociallogin_ucp_module',
+						'module_basename' => '\virgil\login\ucp\virgil_login_ucp_module',
 						'modes' => array (
 							'settings'
 						)

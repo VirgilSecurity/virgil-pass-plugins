@@ -27,4 +27,5 @@ $lang = array_merge ($lang, array (
     'VIRGIL_LOGIN_AUTH_URL' => 'Virgil Auth URL:',
     'VIRGIL_LOGIN_ACP' => 'Virgil Login',
     'VIRGIL_LOGIN_ACP_SETTINGS' => 'Settings',
+    'VIRGIL_LOGIN_SETTNGS_UPDATED' => 'Virgil settings successfully updated.'
 ));
