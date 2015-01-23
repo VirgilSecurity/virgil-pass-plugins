@@ -58,7 +58,7 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
-	 * Add Social Login language file.
+	 * Add Virgil Login language file.
 	 */
 	public function add_language ($event)
 	{
@@ -83,7 +83,7 @@ class listener implements EventSubscriberInterface
 
 
 	/**
-	 * Setup Social Login.
+	 * Setup Virgil Login.
 	 */
 	public function setup ($event)
 	{
@@ -105,7 +105,7 @@ class listener implements EventSubscriberInterface
 				// Embed on the login page
 				if ($this->request->variable ('mode', '') == 'login')
 				{
-                    // Can be changed in the social login settings.
+                    // Can be changed in the virgil login settings.
 					if (empty ($this->config ['virgil_login_page_disable']))
 					{
 						// Trigger icons.

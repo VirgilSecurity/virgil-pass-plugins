@@ -16,7 +16,7 @@ class m3_initial_module extends \phpbb\db\migration\migration
 	{
 		return array (
 
-			// Add Social Login group to ACP \ Extensions
+			// Add Virgil Login group to ACP \ Extensions
 			array (
 				'module.add',
 				array (
@@ -26,7 +26,7 @@ class m3_initial_module extends \phpbb\db\migration\migration
 				)
 			),
 
-			// Add Settings link to Social Login group
+			// Add Settings link to Virgil Login group
 			array (
 				'module.add',
 				array (
@@ -41,7 +41,7 @@ class m3_initial_module extends \phpbb\db\migration\migration
 				)
 			),
 
-			// Add Social Link group to UCP \ Profile
+			// Add Virgil Link group to UCP \ Profile
 			array (
 				'module.add',
 				array (
@@ -51,7 +51,7 @@ class m3_initial_module extends \phpbb\db\migration\migration
 				)
 			),
 
-			// Add Settings link to Social Link group
+			// Add Settings link to Virgil Link group
 			array (
 				'module.add',
 				array (

@@ -14,7 +14,7 @@ if (empty ($lang) || ! is_array ($lang))
 	$lang = array ();
 }
 
-// Social Login Backend.
+// Virgil Login Backend.
 $lang = array_merge ($lang, array (
     'VIRGIL_LOGIN_DO_ENABLE' => 'Enable Virgil Login?',
     'VIRGIL_LOGIN_DO_ENABLE_DESC' => 'Allows you to temporarily disable Virgil Login without having to remove it.',

@@ -14,14 +14,14 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 {
 
 	/**
-	 * Create the Social Login tables.
+	 * Create the Virgil Login tables.
 	 */
 	public function update_schema ()
 	{
     }
 
 	/**
-	 * Drop the Social Login tables.
+	 * Drop the Virgil Login tables.
 	 */
 	public function revert_schema ()
 	{
