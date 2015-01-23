@@ -93,10 +93,11 @@ class listener implements EventSubscriberInterface
 			// First check for a callback
 			$this->check_callback ();
 
-			// Setup template placeholders
+            // Setup template placeholders
 			$this->template->assign_var ('VIRGIL_LOGIN_REDIRECT_URL', $this->config ['virgil_login_redirect_url']);
 			$this->template->assign_var ('VIRGIL_LOGIN_SDK_URL', $this->config ['virgil_login_sdk_url']);
 			$this->template->assign_var ('VIRGIL_LOGIN_AUTH_URL', $this->config ['virgil_login_auth_url']);
+			$this->template->assign_var ('VIRGIL_LOGIN_DISABLED', $this->config ['virgil_login_disable']);
 
             // User must not be logged in
 			if ( empty ($this->user->data['user_id']) || $this->user->data['user_id'] == ANONYMOUS)
@@ -104,7 +105,7 @@ class listener implements EventSubscriberInterface
 				// Embed on the login page
 				if ($this->request->variable ('mode', '') == 'login')
 				{
-					// Can be changed in the social login settings.
+                    // Can be changed in the social login settings.
 					if (empty ($this->config ['virgil_login_page_disable']))
 					{
 						// Trigger icons.
@@ -120,10 +121,10 @@ class listener implements EventSubscriberInterface
 	 */
 	public function check_callback ()
 	{
-		// These values are returned by OneAll
-		if (strlen (($this->request->variable ('oa_action', ''))) > 0 && strlen ($this->request->variable ('connection_token', '')) > 0)
+        // These value returned by Virgil
+		if ($this->request->variable ('token', ''))
 		{
-			$virgillogin = new \virgil\login\acp\virgil_login_acp_module ();
+            $virgillogin = new \virgil\login\acp\virgil_login_acp_module ();
             $virgillogin->handle_callback ();
 		}
 	}

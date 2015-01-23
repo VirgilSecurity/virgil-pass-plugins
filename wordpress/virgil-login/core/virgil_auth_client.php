@@ -4,15 +4,6 @@
 class virgil_auth_client {
 
     /**
-     * RESTful allowed methods
-     * @var string
-     */
-    const GET = 'GET';
-    const POST = 'POST';
-    const PUT = 'PUT';
-    const DELETE = 'DELETE';
-
-    /**
      * Plugin options
      * @var array
      */
@@ -31,11 +22,9 @@ class virgil_auth_client {
      * Curl call
      *
      * @param $url
-     * @param $method
-     * @param null $data
      * @return array|bool|mixed
      */
-    protected function call($url, $method, $data = null) {
+    protected function call($url) {
 
         $ch = curl_init();
 
@@ -59,7 +48,7 @@ class virgil_auth_client {
      */
     public function verify_token($token) {
 
-        $result = $this->call(sprintf('/verify-token/%s', $token), self::GET);
+        $result = $this->call(sprintf('/verify-token/%s', $token));
         return $result['is_active'];
     }
 
@@ -70,7 +59,7 @@ class virgil_auth_client {
      */
     public function get_user_info_by_token($token) {
 
-        $result = $this->call(sprintf('/token/%s/info', $token), self::GET);
+        $result = $this->call(sprintf('/token/%s/info', $token));
         if(!$result) {
             return false;
         }

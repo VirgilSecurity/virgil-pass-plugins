@@ -23,9 +23,13 @@ $lang = array_merge ($lang, array (
     'VIRGIL_LOGIN_DEFAULT' => 'Default',
     'VIRGIL_LOGIN_SETTINGS' => 'Settings',
     'VIRGIL_LOGIN_REDIRECT_URL' => 'Redirect URL:',
+    'VIRGIL_LOGIN_REDIRECT_URL_DESC' => 'URL where the system is redirected after successful authentication',
     'VIRGIL_LOGIN_SDK_URL' => 'Virgil SDK URL:',
+    'VIRGIL_LOGIN_SDK_URL_DESC' => 'Virgil JavaScript SDK URL',
     'VIRGIL_LOGIN_AUTH_URL' => 'Virgil Auth URL:',
+    'VIRGIL_LOGIN_AUTH_URL_DESC' => 'Virgil Authentication service URL',
     'VIRGIL_LOGIN_ACP' => 'Virgil Login',
     'VIRGIL_LOGIN_ACP_SETTINGS' => 'Settings',
-    'VIRGIL_LOGIN_SETTNGS_UPDATED' => 'Virgil settings successfully updated.'
+    'VIRGIL_LOGIN_SETTNGS_UPDATED' => 'Virgil settings successfully updated.',
+    'VIRGIL_LOGIN_PAGE_CAPTION' => 'Login with Virgil'
 ));
