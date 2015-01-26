@@ -11,6 +11,9 @@ class virgil_login_ucp_info
 {
 	function module ()
 	{
+        return array (
+            'modes' => array ()
+        );
     }
 
 	function install()
