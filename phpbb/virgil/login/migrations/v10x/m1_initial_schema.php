@@ -18,6 +18,7 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 	 */
 	public function update_schema ()
 	{
+        return array();
     }
 
 	/**
@@ -25,5 +26,6 @@ class m1_initial_schema extends \phpbb\db\migration\migration
 	 */
 	public function revert_schema ()
 	{
+        return array();
 	}
 }
