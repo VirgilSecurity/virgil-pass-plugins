@@ -127,27 +127,44 @@ class virgil_login extends virgil_core {
     }
 
     /**
-     *
+     * Show Virgil Login notice
      */
     public function show_user_profile() {
 
-        $user = wp_get_current_user();
-        $isVirgilImplemented = get_user_meta($user->ID, 'virgil_implemented', true) ? true : false;
-        if($isVirgilImplemented) {
+        if($this->isVirgilImplemented()) {
             wp_enqueue_script('login', $this->get_plugin_url() . '/js/profile.js');
         }
     }
 
     /**
-     *
+     * Update Virgil Login status
      */
     public function profile_update() {
 
         $stopUsingVirgil = isset($_REQUEST['stop-using-virgil']) && $_REQUEST['stop-using-virgil'] ? true : false;
         if($stopUsingVirgil) {
-            $user = wp_get_current_user();
-            update_user_meta($user->ID, 'virgil_implemented', 0);
+            $this->setVirgilImplemented(0);
         }
+    }
+
+    /**
+     * Is Virgil Login was accepted by user
+     * @return bool
+     */
+    protected function isVirgilImplemented() {
+
+        $user = wp_get_current_user();
+        return get_user_meta($user->ID, 'virgil_implemented', true) ? true : false;
+    }
+
+    /**
+     * Mark that Virgil Login was used
+     * @param int $implemented
+     */
+    protected function setVirgilImplemented($implemented = 1) {
+
+        $user = wp_get_current_user();
+        update_user_meta($user->ID, 'virgil_implemented', $implemented);
     }
 
     /**
@@ -264,7 +281,7 @@ class virgil_login extends virgil_core {
             $user = get_user_by('email', $userInfo['email'])->to_array();
 
             // Update Virgil login state
-            update_user_meta($user['ID'], 'virgil_implemented', 1);
+            $this->setVirgilImplemented(1);
 
             //login
             wp_set_current_user($user['ID'], $user['user_login']);
@@ -309,9 +326,7 @@ class virgil_login extends virgil_core {
         if(!empty($_REQUEST['user_login']) && !isset($_REQUEST['without_virgil'])) {
             $user = get_user_by('email', $_REQUEST['user_login']);
             if($user) {
-                $user = $user->to_array();
-                $isVirgilImplemented = get_user_meta($user['ID'], 'virgil_implemented', true) ? true : false;
-                if($isVirgilImplemented) {
+                if($this->isVirgilImplemented()) {
                     wp_redirect(home_url() . '/wp-login.php?action=lostpassword&email=' . urlencode($_REQUEST['user_login']));
                     exit();
                 }
