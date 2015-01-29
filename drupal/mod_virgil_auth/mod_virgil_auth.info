@@ -1,0 +1,5 @@
+name = Virgil Auth Module
+description = "Allows users to log into your site using Virgil keys."
+version = 0.1
+package = Virgil API
+core = 7.x

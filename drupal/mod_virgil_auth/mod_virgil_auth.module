@@ -1,0 +1,77 @@
+<?php
+
+const RESPONSE_CODE_OK = 200;
+const VIRGIL_BASE_URL = 'https://auth.virgilsecurity.com';
+
+/**
+ * Implements hook_menu().
+ */
+function mod_virgil_auth_menu() {
+    $items['virgil/auth/%'] = array(
+        'page callback' => 'virgil_callback', // Render HTML
+        'page arguments' => array(2),
+        'type' => MENU_CALLBACK,
+        'access arguments' => array('access content'),
+    );
+
+    return $items;
+}
+
+function mod_virgil_auth_form_user_login_block_alter(&$form, &$form_state) {
+    _mod_virgil_auth_user_login_form_alter($form, $form_state);
+}
+
+function mod_virgil_auth_form_user_login_alter(&$form, &$form_state) {
+    _mod_virgil_auth_user_login_form_alter($form, $form_state);
+}
+
+function _mod_virgil_auth_user_login_form_alter(&$form, &$form_state) {
+    drupal_add_js(drupal_get_path('module', 'mod_virgil_auth') .'/js/sdk.js');
+
+    $items = array();
+    $items[] = array(
+        'data' => l(
+            t('Log in using Virgil Auth'),
+            '#virgil_auth-login',
+            array(
+                'external' => true,
+                'attributes' => array(
+                    'data-virgil-ui' => 'auth-btn',
+                    'data-virgil-reference' => $GLOBALS['base_url'] . '/virgil/auth/{{virgilToken}}'
+                )
+            )
+        ),
+        'class' => array('virgil_auth-link'),
+    );
+
+    $form['virgil_auth_links'] = array(
+        '#theme' => 'item_list',
+        '#items' => $items,
+        '#attributes' => array('class' => array('virgil_auth-links')),
+        '#weight' => 1,
+    );
+}
+
+function virgil_callback($token) {
+    $response = drupal_http_request(VIRGIL_BASE_URL . '/token/' . $token . '/info');
+    $result = null;
+
+    if($response && $response->code == RESPONSE_CODE_OK) {
+        $response = json_decode($response->data);
+
+        if(empty($response->email)) {
+            drupal_set_message(t("Unable to register user. User don't have email."), 'error');
+        } else {
+            user_external_login_register($response->email, 'virgil_auth');
+        }
+
+    } else {
+        drupal_set_message(t("Unable to get user information. Please try again later"), 'error');
+    }
+
+    drupal_goto();
+}
+
+function mod_virgil_auth_user_insert(&$edit, $account, $category) {
+
+}

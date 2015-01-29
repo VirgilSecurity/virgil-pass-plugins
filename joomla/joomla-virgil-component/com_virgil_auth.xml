@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade">
+
+	<name>Virgil Auth</name>
+	<creationDate>Jan 2015</creationDate>
+	<version>0.0.3</version>
+	<description>Virgil Auth Component.</description>
+	<update>
+		<schemas>
+			<!-- <schemapath type="mysql">sql/updates/mysql</schemapath> -->
+		</schemas>
+	</update>
+
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>controller.php</filename>
+		<filename>virgilauth.php</filename>
+        <filename>assets/js/sdk.js</filename>
+	</files>
+
+	<administration>
+		<menu>Virgil Auth</menu>
+		<files folder="admin">
+            <filename>virgilauth.php</filename>
+		</files>
+	</administration>
+</extension>
