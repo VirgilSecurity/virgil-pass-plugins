@@ -54,10 +54,13 @@ class virgil_login extends virgil_core {
 
         add_action('init', array($this, 'init'));
 
-        add_action('login_form', array($this, 'create_login_form'));
+        add_action('login_form', array($this, 'login_form'));
 
         add_action('lostpassword_form', array($this, 'lost_password_form'));
         add_action('lostpassword_post', array($this, 'lost_password_post'));
+
+        add_action('show_user_profile', array($this, 'show_user_profile'));
+        add_action('profile_update',    array($this, 'profile_update'));
 
         add_action('admin_menu', array($this, 'admin_menu'));
         add_action('admin_init', array($this, 'admin_init'));
@@ -104,7 +107,7 @@ class virgil_login extends virgil_core {
      * Create login HTML code.
      * Append in to the Wordpress HTML structure
      */
-    public function create_login_form() {
+    public function login_form() {
 
         echo '
         <p class="virgil-login">
@@ -121,6 +124,30 @@ class virgil_login extends virgil_core {
     public function admin_init() {
 
         register_setting('virgil_settings', $this->get_options_name(), array($this, 'admin_options_validate'));
+    }
+
+    /**
+     *
+     */
+    public function show_user_profile() {
+
+        $user = wp_get_current_user();
+        $isVirgilImplemented = get_user_meta($user->ID, 'virgil_implemented', true) ? true : false;
+        if($isVirgilImplemented) {
+            wp_enqueue_script('login', $this->get_plugin_url() . '/js/profile.js');
+        }
+    }
+
+    /**
+     *
+     */
+    public function profile_update() {
+
+        $stopUsingVirgil = isset($_REQUEST['stop-using-virgil']) && $_REQUEST['stop-using-virgil'] ? true : false;
+        if($stopUsingVirgil) {
+            $user = wp_get_current_user();
+            update_user_meta($user->ID, 'virgil_implemented', 0);
+        }
     }
 
     /**
@@ -166,7 +193,7 @@ class virgil_login extends virgil_core {
                 </p>
             </form>
         </div>
-    <?php
+        <?php
     }
 
     /**
@@ -228,12 +255,16 @@ class virgil_login extends virgil_core {
             if (!username_exists($userName) && email_exists($userInfo['email']) == false) {
                 $password = wp_generate_password($length = 12, $include_standard_special_chars = false);
                 wp_create_user($userName, $password, $userInfo['email']);
+            } else {
+                $user = get_user_by('email', $userInfo['email'])->to_array();
+                $password = wp_generate_password($length = 12, $include_standard_special_chars = false);
+                wp_set_password($password, $user['ID']);
             }
 
             $user = get_user_by('email', $userInfo['email'])->to_array();
 
             // Update Virgil login state
-            update_user_meta($user['ID'], 'virgil_last_login', date('Y-m-d H:i:s'));
+            update_user_meta($user['ID'], 'virgil_implemented', 1);
 
             //login
             wp_set_current_user($user['ID'], $user['user_login']);
@@ -279,8 +310,8 @@ class virgil_login extends virgil_core {
             $user = get_user_by('email', $_REQUEST['user_login']);
             if($user) {
                 $user = $user->to_array();
-                $isVirgilUsingByUser = get_user_meta($user['ID'], 'virgil_last_login', true) ? true : false;
-                if($isVirgilUsingByUser) {
+                $isVirgilImplemented = get_user_meta($user['ID'], 'virgil_implemented', true) ? true : false;
+                if($isVirgilImplemented) {
                     wp_redirect(home_url() . '/wp-login.php?action=lostpassword&email=' . urlencode($_REQUEST['user_login']));
                     exit();
                 }
