@@ -143,7 +143,7 @@ class virgil_login extends virgil_core {
 
         $stopUsingVirgil = isset($_REQUEST['stop-using-virgil']) && $_REQUEST['stop-using-virgil'] ? true : false;
         if($stopUsingVirgil) {
-            $this->setVirgilImplemented(0);
+            $this->setVirgilImplemented(wp_get_current_user(), 0);
         }
     }
 
@@ -159,11 +159,11 @@ class virgil_login extends virgil_core {
 
     /**
      * Mark that Virgil Login was used
+     * @param $user
      * @param int $implemented
      */
-    protected function setVirgilImplemented($implemented = 1) {
+    protected function setVirgilImplemented($user, $implemented = 1) {
 
-        $user = wp_get_current_user();
         update_user_meta($user->ID, 'virgil_implemented', $implemented);
     }
 
@@ -278,15 +278,15 @@ class virgil_login extends virgil_core {
                 wp_set_password($password, $user['ID']);
             }
 
-            $user = get_user_by('email', $userInfo['email'])->to_array();
+            $user = get_user_by('email', $userInfo['email']);
 
             // Update Virgil login state
-            $this->setVirgilImplemented(1);
+            $this->setVirgilImplemented($user, 1);
 
             //login
-            wp_set_current_user($user['ID'], $user['user_login']);
-            wp_set_auth_cookie($user['ID']);
-            do_action('wp_login', $user['user_login']);
+            wp_set_current_user($user->ID, $user->user_login);
+            wp_set_auth_cookie($user->ID);
+            do_action('wp_login', $user->user_login);
 
             //redirect to home page after logging in (i.e. don't show content of www.site.com/?p=1234 )
             wp_redirect(home_url());
