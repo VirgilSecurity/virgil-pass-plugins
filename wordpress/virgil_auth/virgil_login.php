@@ -132,6 +132,7 @@ class virgil_login extends virgil_core {
     public function show_user_profile() {
 
         if($this->isVirgilImplemented()) {
+            wp_enqueue_style('profile', $this->get_plugin_url() . 'css/profile.css');
             wp_enqueue_script('login', $this->get_plugin_url() . '/js/profile.js');
         }
     }
