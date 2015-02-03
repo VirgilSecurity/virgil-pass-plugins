@@ -1,6 +1,6 @@
 <?php
 
-namespace virgil\login\client;
+namespace virgil\auth\client;
 
 
 class virgil_auth_client {

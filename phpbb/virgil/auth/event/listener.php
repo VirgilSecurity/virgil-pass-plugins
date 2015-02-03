@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @package   	Virgil Login
+ * @package   	Virgil Auth
  * @copyright 	Copyright 2015 http://www.virgilsecurity.com - All rights reserved.
  * @license
  */
-namespace virgil\login\event;
+namespace virgil\auth\event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
@@ -58,7 +58,7 @@ class listener implements EventSubscriberInterface
 	}
 
 	/**
-	 * Add Virgil Login language file.
+	 * Add Virgil Auth language file.
 	 */
 	public function add_language ($event)
 	{
@@ -67,13 +67,13 @@ class listener implements EventSubscriberInterface
 
 		// Add frontend language strings.
 		$lang_set_ext[] = array(
-			'ext_name' => 'virgil/login',
+			'ext_name' => 'virgil/auth',
 			'lang_set' => 'frontend'
 		);
 
 		// Add backend language strings.
 		$lang_set_ext[] = array(
-			'ext_name' => 'virgil/login',
+			'ext_name' => 'virgil/auth',
 			'lang_set' => 'backend'
 		);
 
@@ -83,7 +83,7 @@ class listener implements EventSubscriberInterface
 
 
 	/**
-	 * Setup Virgil Login.
+	 * Setup Auth Login.
 	 */
 	public function setup ($event)
 	{
@@ -105,7 +105,7 @@ class listener implements EventSubscriberInterface
 				// Embed on the login page
 				if ($this->request->variable ('mode', '') == 'login')
 				{
-                    // Can be changed in the virgil login settings.
+                    // Can be changed in the virgil auth settings.
 					if (empty ($this->config ['virgil_login_page_disable']))
 					{
 						// Trigger icons.
@@ -121,11 +121,18 @@ class listener implements EventSubscriberInterface
 	 */
 	public function check_callback ()
 	{
-        // These value returned by Virgil
+        // Handle request after Virgil Login
 		if ($this->request->variable ('token', ''))
 		{
-            $virgillogin = new \virgil\login\acp\virgil_login_acp_module ();
+            $virgillogin = new \virgil\auth\acp\virgil_login_acp_module ();
             $virgillogin->handle_callback ();
 		}
+
+        // Handle request to the profile page
+        if($this->request->variable ('mode', '') == 'reg_details')
+        {
+            $userprofile = new \virgil\auth\ucp\virgil_login_ucp_module();
+            $userprofile->handle_callback ();
+        }
 	}
 }

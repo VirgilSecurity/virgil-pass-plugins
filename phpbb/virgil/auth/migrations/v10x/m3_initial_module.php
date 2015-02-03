@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @package   	Virgil Login
+ * @package   	Virgil Auth
  * @copyright 	Copyright 2015 http://www.virgilsecurity.com - All rights reserved.
  * @license
  */
-namespace virgil\login\migrations\v10x;
+namespace virgil\auth\migrations\v10x;
 
 /**
  * Migration stage 3: Initial module
@@ -16,7 +16,7 @@ class m3_initial_module extends \phpbb\db\migration\migration
 	{
 		return array (
 
-			// Add Virgil Login group to ACP \ Extensions
+			// Add Virgil Auth group to ACP \ Extensions
 			array (
 				'module.add',
 				array (
@@ -26,14 +26,14 @@ class m3_initial_module extends \phpbb\db\migration\migration
 				)
 			),
 
-			// Add Settings link to Virgil Login group
+			// Add Settings link to Virgil Auth group
 			array (
 				'module.add',
 				array (
 					'acp',
 					'VIRGIL_LOGIN_ACP',
 					array (
-						'module_basename' => '\virgil\login\acp\virgil_login_acp_module',
+						'module_basename' => '\virgil\auth\acp\virgil_login_acp_module',
 						'modes' => array (
 							'settings'
 						)
@@ -58,7 +58,7 @@ class m3_initial_module extends \phpbb\db\migration\migration
 					'ucp',
 					'OA_SOCIAL_LOGIN_LINK_UCP',
 					array (
-						'module_basename' => '\virgil\login\ucp\virgil_login_ucp_module',
+						'module_basename' => '\virgil\auth\ucp\virgil_login_ucp_module',
 						'modes' => array (
 							'settings'
 						)

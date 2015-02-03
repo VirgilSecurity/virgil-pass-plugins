@@ -1,11 +1,11 @@
 <?php
 
 /**
- * @package   	Virgil Login
+ * @package   	Virgil Auth
  * @copyright 	Copyright 2015 http://www.virgilsecurity.com - All rights reserved.
  * @license
  */
-namespace virgil\login\migrations\v10x;
+namespace virgil\auth\migrations\v10x;
 
 /**
  * Migration stage 2: Initial data changes to the database

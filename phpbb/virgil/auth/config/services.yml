@@ -1,6 +1,6 @@
 services:
     virgil.login.listener:
-        class: virgil\login\event\listener
+        class: virgil\auth\event\listener
         arguments:
             - @config
             - @config_text

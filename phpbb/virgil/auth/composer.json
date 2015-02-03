@@ -1,14 +1,14 @@
 {
-	"name": "virgil/login",
+	"name": "virgil/auth",
 	"type": "phpbb-extension",
-	"description": "Virgil Login extension",
-	"homepage": "https://https://virgilsecurity.com",
+	"description": "Virgil Auth extension",
+	"homepage": "https://virgilsecurity.com",
 	"version": "1.0",
-	"keywords": ["phpBB", "Extension", "Virgil Login"],
+	"keywords": ["phpBB", "Extension", "Virgil Auth"],
 	"license": "GPL-2.0",
 	"authors": [
 		{
-			"name": "Virgil Login",
+			"name": "Virgil Auth",
 			"email": "support@virgilsecurity.com",
 			"homepage": "http://www.virgilsecurity.com/",
 			"role": "Developer"
@@ -24,7 +24,7 @@
 		 "phpbb/phpbb": "3.1.0-RC3"
 	}	,
 	"extra": {
-		"display-name": "Virgil Login",
+		"display-name": "Virgil Auth",
 		"soft-require": {
 			"phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
 		}

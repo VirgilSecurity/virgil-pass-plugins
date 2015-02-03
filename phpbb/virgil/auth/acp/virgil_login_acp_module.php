@@ -1,10 +1,10 @@
 <?php
 /**
- * @package   	Virgil Login
+ * @package   	Virgil Auth
  * @copyright 	Copyright 2015 http://www.virgilsecurity.com - All rights reserved.
  * @license
  */
-namespace virgil\login\acp;
+namespace virgil\auth\acp;
 
 class virgil_login_acp_module
 {
@@ -60,15 +60,15 @@ class virgil_login_acp_module
 		global $user, $template, $config, $request;
 
 		// Add the language file.
-		$user->add_lang_ext ('virgil/login', 'backend');
+		$user->add_lang_ext ('virgil/auth', 'backend');
 
 		// Set up the page
 		$this->tpl_name = 'login';
 
-		// Enable Virgil Login?
+		// Enable Virgil Auth?
 		$virgil_login_disable = ((isset ($config ['virgil_login_disable']) && $config ['virgil_login_disable'] == '1') ? '1' : '0');
 
-		// Virgil Login settings
+		// Virgil Auth settings
         $virgil_login_redirect_url = (isset ($config ['virgil_login_redirect_url']) ? $config ['virgil_login_redirect_url'] : $config ['server_protocol'] . $config ['server_name'] . '/ucp.php?mode=login&token={{virgilToken}}');
         $virgil_login_sdk_url      = (isset ($config ['virgil_login_sdk_url'])      ? $config ['virgil_login_sdk_url']      : 'https://auth-demo.virgilsecurity.com/js/sdk.js');
         $virgil_login_auth_url     = (isset ($config ['virgil_login_auth_url'])     ? $config ['virgil_login_auth_url']     : 'https://auth.virgilsecurity.com');
@@ -114,6 +114,20 @@ class virgil_login_acp_module
 		// Done
 		return true;
 	}
+
+    /**
+     * Update user virgil_implemented status
+     *
+     * @param $user_id
+     * @param int $implemented
+     */
+    protected function set_virgil_implemented($user_id, $implemented = 1)
+    {
+        global $db;
+
+        $sql = 'UPDATE ' . USERS_TABLE . " SET virgil_implemented = " . $db->sql_escape ($implemented) . " WHERE user_id = " . intval ($user_id);
+        $db->sql_query ($sql);
+    }
 
     /**
      * Get the user_id for a given email address.
@@ -252,7 +266,7 @@ class virgil_login_acp_module
 		global $user, $config, $template, $phpbb_root_path, $phpEx, $request, $phpbb_container;
 
 		// Add language file.
-		$user->add_lang_ext ('virgil/login', 'frontend');
+		$user->add_lang_ext ('virgil/auth', 'frontend');
 
 		// Read arguments.
 		$token = trim($request->variable ('token', ''));
@@ -260,12 +274,12 @@ class virgil_login_acp_module
 		// Make sure we need to call the callback handler.
 		if (!empty($token))
 		{
-            // Make sure Virgil Login is enabled.
+            // Make sure Virgil Auth is enabled.
 			if (empty ($config ['virgil_login_disable']))
 			{
 
                 $error = false;
-                $virgil_auth_client = new \virgil\login\client\virgil_auth_client(array(
+                $virgil_auth_client = new \virgil\auth\client\virgil_auth_client(array(
                     'auth_url' => $config ['virgil_login_auth_url']
                 ));
 
@@ -330,10 +344,16 @@ class virgil_login_acp_module
                             $this->do_login ($user_id);
                         }
 
+                        // Update virgil implemented
+                        $this->set_virgil_implemented($user_id, 1);
+
                         redirect ($phpbb_root_path . 'index.' . $phpEx);
 
                     } else
                     {
+
+                        // Update virgil implemented
+                        $this->set_virgil_implemented($user_id, 1);
 
                         // Log the user in
                         $this->do_login ($user_id);
