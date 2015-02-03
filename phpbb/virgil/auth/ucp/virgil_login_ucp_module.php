@@ -22,7 +22,6 @@ class virgil_login_ucp_module
             $this->set_virgil_implemented($user->data['user_id'], 0);
         }
 
-        var_dump(1); exit();
         if($user->data['virgil_implemented']) {
             $template->assign_vars(array(
                 'VIRGIL_IMPLEMENTED' => $user->data['virgil_implemented'],
