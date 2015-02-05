@@ -1,0 +1,29 @@
+{
+	"name": "virgil/pass",
+	"type": "phpbb-extension",
+    "description": "Virgil Pass Extension",
+	"homepage": "https://virgilsecurity.com",
+	"version": "1.0",
+    "keywords": ["Virgil", "Passwordless", "Authentication", "ECIES"],
+	"license": "BSD",
+	"authors": [
+		{
+			"name": "Virgil Path",
+			"email": "support@virgilsecurity.com",
+			"homepage": "http://www.virgilsecurity.com/",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=5.0.0"
+	},
+	"provide": {
+		 "phpbb/phpbb": "3.1.0-RC3"
+	}	,
+	"extra": {
+		"display-name": "Virgil Path",
+		"soft-require": {
+			"phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+		}
+	}
+}

@@ -1,0 +1,20 @@
+<!-- IF VIRGIL_PASS_EMBED && not VIRGIL_PASS_DISABLED -->
+<div class="panel">
+    <div class="inner">
+        <div class="content">
+            <h2 class="login-title">{L_VIRGIL_PASS_PAGE_CAPTION}</h2>
+            <div style="margin-top:10px">
+                <!-- IF VIRGIL_PASS_WARNING -->
+                <div class="error">
+                    <p>{VIRGIL_PASS_VALIDATION_MESSAGE}</p>
+                </div>
+                <!-- ENDIF -->
+                <p class="virgil-login">
+                    <a href="https://auth-demo.virgilsecurity.com/uploads/virgil-chrome.zip">Download Virgil Extension</a>
+                    <button data-virgil-ui="auth-btn" data-virgil-reference="{VIRGIL_PASS_REDIRECT_URL}">Virgil Auth</button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ENDIF -->
