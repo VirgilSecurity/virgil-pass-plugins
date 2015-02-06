@@ -87,7 +87,7 @@ class listener implements EventSubscriberInterface
 	 */
 	public function setup ($event)
 	{
-		// The plugin must be enabled and the API settings must be filled out
+        // The plugin must be enabled and the API settings must be filled out
 		if (empty($this->config ['virgil_pass_page_disable']))
 		{
 			// First check for a callback
@@ -108,7 +108,7 @@ class listener implements EventSubscriberInterface
                     // Can be changed in the virgil auth settings.
 					if (empty ($this->config ['virgil_pass_page_disable']))
 					{
-						// Trigger icons.
+                        // Trigger icons.
 						$this->template->assign_var ('VIRGIL_PASS_EMBED', 1);
 					}
 				}

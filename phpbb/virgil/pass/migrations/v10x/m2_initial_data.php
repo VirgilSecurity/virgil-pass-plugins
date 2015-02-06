@@ -14,6 +14,25 @@ class m2_initial_data extends \phpbb\db\migration\migration
 {
 	public function update_data ()
 	{
+        global $config;
+
+        // Save configuration.
+        $config->set ('virgil_pass_disable', 0);
+        $config->set ('virgil_pass_redirect_url', $config ['server_protocol'] . $config ['server_name'] . '/ucp.php?mode=login&token={{virgilToken}}');
+        $config->set ('virgil_pass_sdk_url', 'https://auth-demo.virgilsecurity.com/js/sdk.js');
+        $config->set ('virgil_pass_auth_url', 'https://auth.virgilsecurity.com');
+
 		return array ();
 	}
+
+    public function revert_data ()
+    {
+
+        global $config;
+
+        $config->delete ('virgil_pass_disable');
+        $config->delete ('virgil_pass_redirect_url');
+        $config->delete ('virgil_pass_sdk_url');
+        $config->delete ('virgil_pass_auth_url');
+    }
 }

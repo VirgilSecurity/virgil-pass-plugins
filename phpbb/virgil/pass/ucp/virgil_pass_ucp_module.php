@@ -14,6 +14,7 @@ if (! defined ('IN_PHPBB'))
 
 class virgil_pass_ucp_module
 {
+
     public function handle_callback ()
     {
         global $user, $template, $request;
