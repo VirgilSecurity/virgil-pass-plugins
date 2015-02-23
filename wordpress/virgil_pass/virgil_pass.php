@@ -111,7 +111,6 @@ class virgil_pass extends virgil_core {
 
         echo '
         <p class="virgil-login">
-            <a href="https://auth-demo.virgilsecurity.com/uploads/virgil-chrome.zip">Download Virgil Extension</a>
             <button data-virgil-ui="auth-btn" data-virgil-reference="' . $this->options['redirect_url'] . '">Virgil Auth</button>
         </p>';
 
@@ -306,7 +305,6 @@ class virgil_pass extends virgil_core {
 
                 echo '
                 <p class="virgil-login">
-                    <a href="https://auth-demo.virgilsecurity.com/uploads/virgil-chrome.zip">Download Virgil Extension</a>
                     <button data-virgil-ui="auth-btn" data-virgil-reference="' . $this->options['redirect_url'] . '">Virgil Auth</button>
                 </p>
 

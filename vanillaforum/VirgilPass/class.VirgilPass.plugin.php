@@ -28,7 +28,6 @@ class VirgilPassPlugin extends Gdn_Plugin {
             $Sender->Head->AddString('<script src="' . C('Plugins.VirgilPass.sdkUrl') . '"></script>');
             $SignInHtml='<div style="margin-top:10px">
                             <p class="virgil-login">
-                                <a href="https://auth-demo.virgilsecurity.com/uploads/virgil-chrome.zip">Download Virgil Extension</a>
                                 <button data-virgil-ui="auth-btn" data-virgil-reference="http://virgil.phpbb.local/ucp.php?mode=login&amp;token={{virgilToken}}">Virgil Auth</button>
                             </p>
                         </div>';
