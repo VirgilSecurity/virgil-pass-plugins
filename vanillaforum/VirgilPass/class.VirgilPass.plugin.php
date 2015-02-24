@@ -36,6 +36,7 @@ class VirgilPassPlugin extends Gdn_Plugin {
     public function EntryController_SignIn_Handler($Sender, $Args) {
 
         if(C('Plugins.VirgilPass.disabled') == 'no') {
+
             $SignInHtml='<div style="margin-top:10px">
                             <p class="virgil-login">
                                 <button data-virgil-ui="auth-btn" data-virgil-reference="' . C('Plugins.VirgilPass.redirectUrl') . '" type="button">Virgil Auth</button>
@@ -51,6 +52,11 @@ class VirgilPassPlugin extends Gdn_Plugin {
         }
     }
 
+    /**
+     * Handle before Signin request
+     * @param $Sender
+     * @param $Args
+     */
     public function Base_BeforeSignInButton_Handler($Sender, $Args) {
 
         if(($token = GetIncomingValue('token')) !== false) {
@@ -74,9 +80,100 @@ class VirgilPassPlugin extends Gdn_Plugin {
 
             if(!$error) {
 
+                $UserDataAuth = Gdn::SQL()
+                    ->Select('UserID')
+                    ->From('User')
+                    ->Where('Email', $userInfo['email'])
+                    ->Get()->Result(DATASET_TYPE_ARRAY);
+
+                $user = null;
+                foreach ($UserDataAuth as $AuthUser) {
+                    $UserID = GetValue('UserID', $AuthUser);
+                }
+
+                // If user was not found created it
+                if(!$UserID) {
+
+                    // Collect user data
+                    $PasswordHash = new Gdn_PasswordHash();
+                    $Data = array(
+                        'Name'=>$userInfo['first_name'],
+                        'Password'=> $PasswordHash->HashPassword(RandomString(8)),
+                        'Email'=>$userInfo['email'],
+                        'Photo'=> '',
+                        'About'=> '',
+                        'Gender' => 99,
+                        'DateOfBirth'=> '',
+                        'DateFirstVisit' =>   Gdn_Format::ToDateTime(),
+                        'InsertIPAddress' =>Gdn::Request()->IPAddress(),
+                        'LastIPAddress' =>Gdn::Request()->IPAddress(),
+                        'DateInserted' => Gdn_Format::ToDateTime(strtotime('-1 day'))
+                    );
+
+                    Gdn::SQL()->Options('Ignore', TRUE)->Insert('User', $Data);
+
+                    $UserDataw = Gdn::SQL()
+                        ->Select('UserID')
+                        ->From('User')
+                        ->Where('Email',  $userInfo['email'])
+                        ->Get()->Result(DATASET_TYPE_ARRAY);
+                    foreach ($UserDataw as $UpdateUser) {
+                        $UserID = GetValue('UserID', $UpdateUser);
+                    }
+                }
+
+                Gdn::Session()->Start($UserID);
+                $_SESSION['lrdata_store']=$UserID;
+
+                Redirect('/');
             }
         }
+    }
 
+    public function ProfileController_AfterAddSideMenu_Handler($Sender) {
+
+
+    }
+
+    /*
+    * Add to dashboard side menu.
+    */
+    public function Base_GetAppSettingsMenuItems_Handler($Sender) {
+
+        $Menu = $Sender->EventArguments['SideMenu'];
+        $Menu->AddItem('Add-ons', T('Addons'), FALSE, array('class' => 'Addons'));
+        $Menu->AddLink('Add-ons', T('Virgil Pass'), 'dashboard/settings/VirgilPass', 'Garden.Settings.Manage');
+    }
+
+    /**
+     * Admin Configuration option.
+     */
+    public function SettingsController_VirgilPass_Create($Sender, $Args) {
+
+        $Sender->Permission('Garden.Settings.Manage');
+        if ($Sender->Form->IsPostBack()) {
+
+            SaveToConfig(array(
+                'Plugins.VirgilPass.redirectUrl' =>$Sender->Form->GetFormValue('redirectUrl'),
+                'Plugins.VirgilPass.sdkUrl' =>$Sender->Form->GetFormValue('sdkUrl'),
+                'Plugins.VirgilPass.authUrl' =>$Sender->Form->GetFormValue('authUrl'),
+                'Plugins.VirgilPass.disabled' => $Sender->Form->GetFormValue('disabled')
+            ));
+
+            $Sender->InformMessage(T("Your settings have been saved."));
+
+        }
+        else {
+
+            $Sender->Form->SetFormValue('redirectUrl', C('Plugins.VirgilPass.redirectUrl'));
+            $Sender->Form->SetFormValue('sdkUrl', C('Plugins.VirgilPass.sdkUrl'));
+            $Sender->Form->SetFormValue('authUrl', C('Plugins.VirgilPass.authUrl'));
+            $Sender->Form->SetFormValue('disabled', C('Plugins.VirgilPass.disabled'));
+        }
+
+        $Sender->AddSideMenu();
+        $Sender->SetData('Title', T('Virgil Pass Plugin Settings'));
+        $Sender->Render('Settings', '', 'plugins/VirgilPass');
     }
 
     /**
