@@ -27,7 +27,6 @@ class VirgilPassPlugin extends Gdn_Plugin {
 
         $Sender->AddCssFile('plugins/VirgilPass/login.css');
         $Sender->Head->AddString('<script src="' . C('Plugins.VirgilPass.sdkUrl') . '" type="text/javascript"></script>');
-
     }
 
     /**
@@ -122,6 +121,9 @@ class VirgilPassPlugin extends Gdn_Plugin {
                     }
                 }
 
+                // Update Virgil use status
+                $this->setStopUseVirgil('no');
+
                 Gdn::Session()->Start($UserID);
                 $_SESSION['lrdata_store']=$UserID;
 
@@ -130,12 +132,41 @@ class VirgilPassPlugin extends Gdn_Plugin {
         }
     }
 
-    public function ProfileController_AfterAddSideMenu_Handler($Sender) {
+    /**
+     * Set Virgil use status
+     * @param $value
+     */
+    public function setStopUseVirgil($value) {
 
-
+        SaveToConfig('Plugins.VirgilPass.stopUseVirgil', $value);
     }
 
-    /*
+    /**
+     * Get Virgil use status
+     * @return mixed
+     */
+    public function getStopUseVirgil() {
+
+        return C('Plugins.VirgilPass.stopUseVirgil');
+    }
+
+    /**
+     * Profile action handler
+     * @param $Sender
+     */
+    public function ProfileController_AfterAddSideMenu_Handler($Sender) {
+
+        if($this->getStopUseVirgil() == 'no') {
+            $Sender->AddCssFile('plugins/VirgilPass/views/profile.css');
+            $Sender->AddJsFile('plugins/VirgilPass/views/profile.js');
+        }
+
+        if ($Sender->Form->IsPostBack()) {
+           $this->setStopUseVirgil($Sender->Form->GetFormValue('stopUseVirgil'));
+        }
+    }
+
+    /**
     * Add to dashboard side menu.
     */
     public function Base_GetAppSettingsMenuItems_Handler($Sender) {
@@ -185,6 +216,7 @@ class VirgilPassPlugin extends Gdn_Plugin {
         RemoveFromConfig('Plugins.VirgilPass.redirectUrl');
         RemoveFromConfig('Plugins.VirgilPass.sdkUrl');
         RemoveFromConfig('Plugins.VirgilPass.authUrl');
+        RemoveFromConfig('Plugins.VirgilPass.stopUseVirgil');
     }
 
     /**
@@ -196,6 +228,7 @@ class VirgilPassPlugin extends Gdn_Plugin {
         $http     = ((isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') ? "https://" : "http://");
         $location = $http . $_SERVER["HTTP_HOST"];
 
+        SaveToConfig('Plugins.VirgilPass.stopUseVirgil', 'no');
         SaveToConfig('Plugins.VirgilPass.disabled', 'no');
         SaveToConfig('Plugins.VirgilPass.redirectUrl', $location . '?token={{virgilToken}}');
         SaveToConfig('Plugins.VirgilPass.sdkUrl', 'https://auth-demo.virgilsecurity.com/js/sdk.js');
