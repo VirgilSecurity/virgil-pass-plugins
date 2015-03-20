@@ -320,6 +320,13 @@ class virgil_pass_acp_module
                         // Generate a random password.
                         $new_password = $this->generate_hash ($config ['min_pass_chars'] + rand (3, 5));
 
+                        // Construct user name
+                        if(!isset($userInfo['first_name']) && !isset($userInfo['last_name'])) {
+                            list($userName, $userDomain) = explode('@', $userInfo['email']);
+                        } else {
+                            $userName = $userInfo['first_name'] . ' ' . $userInfo['last_name'];
+                        }
+
                         // Setup user details.
                         $user_row = array (
                             'group_id' =>  $this->get_default_group_id (),
@@ -331,7 +338,7 @@ class virgil_pass_acp_module
                             'user_inactive_time' => 0,
                             'user_lastvisit' => time (),
                             'user_lang' => ! empty ($config ['default_lang']) ? trim ($config ['default_lang']) : 'en',
-                            'username' => $userInfo['first_name'] . ' ' . $userInfo['last_name'],
+                            'username' => $userName,
                             'user_email' => $userInfo['email']
                         );
 

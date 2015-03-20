@@ -13,6 +13,7 @@ require_once(plugin_dir_path(__FILE__) . '/core/virgil_core.php' );
 
 class virgil_pass extends virgil_core {
 
+    // Plugin version
     protected $PLUGIN_VERSION = '1.0';
 
     // Singleton
@@ -21,7 +22,7 @@ class virgil_pass extends virgil_core {
     // Plugin options
     protected $options = array();
 
-    //
+    // Mark that include was already done
     private $doneIncludePath = false;
 
     /**
@@ -85,8 +86,19 @@ class virgil_pass extends virgil_core {
      */
     protected function add_hooks() {
 
-        register_activation_hook($this->get_plugin_base_name(), array($this, 'activation_hook'));
-        register_deactivation_hook($this->get_plugin_base_name(), array($this, 'deactivation_hook'));
+        register_activation_hook(
+            $this->get_plugin_base_name(),
+            array(
+                $this, 'activation_hook'
+            )
+        );
+
+        register_deactivation_hook(
+            $this->get_plugin_base_name(),
+            array(
+                $this, 'deactivation_hook'
+            )
+        );
     }
 
     /**
@@ -114,7 +126,10 @@ class virgil_pass extends virgil_core {
             <button data-virgil-ui="auth-btn" data-virgil-reference="' . $this->options['redirect_url'] . '">Virgil Auth</button>
         </p>';
 
-        wp_enqueue_script('login', $this->get_plugin_url() . '/js/login.js');
+        wp_enqueue_script(
+            'login',
+            $this->get_plugin_url() . '/js/login.js'
+        );
     }
 
     /**
@@ -122,7 +137,13 @@ class virgil_pass extends virgil_core {
      */
     public function admin_init() {
 
-        register_setting('virgil_settings', $this->get_options_name(), array($this, 'admin_options_validate'));
+        register_setting(
+            'virgil_settings',
+            $this->get_options_name(),
+            array(
+                $this, 'admin_options_validate'
+            )
+        );
     }
 
     /**
@@ -131,8 +152,15 @@ class virgil_pass extends virgil_core {
     public function show_user_profile() {
 
         if($this->isVirgilImplemented()) {
-            wp_enqueue_style('profile', $this->get_plugin_url() . 'css/profile.css');
-            wp_enqueue_script('login', $this->get_plugin_url() . '/js/profile.js');
+            wp_enqueue_style(
+                'profile',
+                $this->get_plugin_url() . 'css/profile.css'
+            );
+
+            wp_enqueue_script(
+                'login',
+                $this->get_plugin_url() . '/js/profile.js'
+            );
         }
     }
 
@@ -267,9 +295,14 @@ class virgil_pass extends virgil_core {
                 return $this->displayAndReturnError($error);
             }
 
+            if(!isset($userInfo['first_name']) &&  !isset($userInfo['last_name'])) {
+                list($userName, $userDomain) = explode('@', $userInfo['email']);
+            } else {
+                $userName = $userInfo['first_name'] . ' ' . $userInfo['last_name'];
+            }
+
             // If everything fine, then register new user or log in.
-            $userName = $userInfo['first_name'] . ' ' . $userInfo['last_name'];
-            if (!username_exists($userName) && email_exists($userInfo['email']) == false) {
+            if (email_exists($userInfo['email']) == false) {
                 $password = wp_generate_password($length = 12, $include_standard_special_chars = false);
                 wp_create_user($userName, $password, $userInfo['email']);
             } else {
@@ -326,7 +359,9 @@ class virgil_pass extends virgil_core {
             $user = get_user_by('email', $_REQUEST['user_login']);
             if($user) {
                 if($this->isVirgilImplemented()) {
-                    wp_redirect(home_url() . '/wp-login.php?action=lostpassword&email=' . urlencode($_REQUEST['user_login']));
+                    wp_redirect(
+                        home_url() . '/wp-login.php?action=lostpassword&email=' . urlencode($_REQUEST['user_login'])
+                    );
                     exit();
                 }
             }
