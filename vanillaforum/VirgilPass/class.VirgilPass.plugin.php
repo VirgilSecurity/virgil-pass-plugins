@@ -72,7 +72,8 @@ class VirgilPassPlugin extends Gdn_Plugin {
                 $error = true;
             }
 
-            if(($userInfo = $virgil_auth_client->get_user_info_by_token($token)) == false) {
+            $userInfo = $userInfo = $virgil_auth_client->get_user_info_by_token($token);
+            if($userInfo == false) {
                 $Sender->AddAsset('Messages', 'Virgil user was not found.');
                 $error = true;
             }
@@ -93,19 +94,25 @@ class VirgilPassPlugin extends Gdn_Plugin {
                 // If user was not found created it
                 if(!$UserID) {
 
+                    if(!isset($userInfo['first_name']) &&  !isset($userInfo['last_name'])) {
+                        list($userName, $userDomain) = explode('@', $userInfo['email']);
+                    } else {
+                        $userName = $userInfo['first_name'] . ' ' . $userInfo['last_name'];
+                    }
+
                     // Collect user data
                     $PasswordHash = new Gdn_PasswordHash();
                     $Data = array(
-                        'Name'=>$userInfo['first_name'],
+                        'Name'=> $userName,
                         'Password'=> $PasswordHash->HashPassword(RandomString(8)),
-                        'Email'=>$userInfo['email'],
+                        'Email'=> $userInfo['email'],
                         'Photo'=> '',
                         'About'=> '',
                         'Gender' => 99,
                         'DateOfBirth'=> '',
-                        'DateFirstVisit' =>   Gdn_Format::ToDateTime(),
-                        'InsertIPAddress' =>Gdn::Request()->IPAddress(),
-                        'LastIPAddress' =>Gdn::Request()->IPAddress(),
+                        'DateFirstVisit' => Gdn_Format::ToDateTime(),
+                        'InsertIPAddress' => Gdn::Request()->IPAddress(),
+                        'LastIPAddress' => Gdn::Request()->IPAddress(),
                         'DateInserted' => Gdn_Format::ToDateTime(strtotime('-1 day'))
                     );
 
@@ -116,14 +123,21 @@ class VirgilPassPlugin extends Gdn_Plugin {
                         ->From('User')
                         ->Where('Email',  $userInfo['email'])
                         ->Get()->Result(DATASET_TYPE_ARRAY);
+
                     foreach ($UserDataw as $UpdateUser) {
                         $UserID = GetValue('UserID', $UpdateUser);
                     }
+
+                    // Set member permission
+                    $DataRole = array(
+                        'UserID'=> $UserID,
+                        'RoleID'=> 8
+                    );
+                    Gdn::SQL()->Options('Ignore', FALSE)->Insert('UserRole', $DataRole);
                 }
 
                 // Update Virgil use status
                 $this->setStopUseVirgil('no');
-
                 Gdn::Session()->Start($UserID);
                 $_SESSION['lrdata_store']=$UserID;
 
@@ -156,9 +170,13 @@ class VirgilPassPlugin extends Gdn_Plugin {
      */
     public function ProfileController_AfterAddSideMenu_Handler($Sender) {
 
-        if($this->getStopUseVirgil() == 'no') {
-            $Sender->AddCssFile('plugins/VirgilPass/views/profile.css');
-            $Sender->AddJsFile('plugins/VirgilPass/views/profile.js');
+        if($this->getStopUseVirgil() != 'no') {
+            $Sender->AddCssFile(
+                'plugins/VirgilPass/views/profile.css'
+            );
+            $Sender->AddJsFile(
+                'plugins/VirgilPass/views/profile.js'
+            );
         }
 
         if ($Sender->Form->IsPostBack()) {
@@ -172,8 +190,19 @@ class VirgilPassPlugin extends Gdn_Plugin {
     public function Base_GetAppSettingsMenuItems_Handler($Sender) {
 
         $Menu = $Sender->EventArguments['SideMenu'];
-        $Menu->AddItem('Add-ons', T('Addons'), FALSE, array('class' => 'Addons'));
-        $Menu->AddLink('Add-ons', T('Virgil Pass'), 'dashboard/settings/VirgilPass', 'Garden.Settings.Manage');
+        $Menu->AddItem(
+            'Add-ons',
+            T('Addons'),
+            FALSE,
+            array('class' => 'Addons')
+        )
+        ;
+        $Menu->AddLink(
+            'Add-ons',
+            T('Virgil Pass'),
+            'dashboard/settings/VirgilPass',
+            'Garden.Settings.Manage'
+        );
     }
 
     /**
@@ -185,9 +214,9 @@ class VirgilPassPlugin extends Gdn_Plugin {
         if ($Sender->Form->IsPostBack()) {
 
             SaveToConfig(array(
-                'Plugins.VirgilPass.redirectUrl' =>$Sender->Form->GetFormValue('redirectUrl'),
-                'Plugins.VirgilPass.sdkUrl' =>$Sender->Form->GetFormValue('sdkUrl'),
-                'Plugins.VirgilPass.authUrl' =>$Sender->Form->GetFormValue('authUrl'),
+                'Plugins.VirgilPass.redirectUrl' => $Sender->Form->GetFormValue('redirectUrl'),
+                'Plugins.VirgilPass.sdkUrl' => $Sender->Form->GetFormValue('sdkUrl'),
+                'Plugins.VirgilPass.authUrl' => $Sender->Form->GetFormValue('authUrl'),
                 'Plugins.VirgilPass.disabled' => $Sender->Form->GetFormValue('disabled')
             ));
 

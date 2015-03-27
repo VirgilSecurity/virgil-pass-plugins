@@ -18,8 +18,8 @@ class virgil_auth_client {
      * Virgil Auth Constructor
      * @param $options
      */
-    public function __construct($options)
-    {
+    public function __construct($options) {
+
         $this->options = $options;
     }
 
@@ -29,8 +29,7 @@ class virgil_auth_client {
      * @param $url
      * @return array|bool|mixed
      */
-    protected function call($url)
-    {
+    protected function call($url) {
 
         $ch = curl_init();
 
@@ -52,8 +51,7 @@ class virgil_auth_client {
      * @param $token
      * @return mixed
      */
-    public function verify_token($token)
-    {
+    public function verify_token($token) {
 
         $result = $this->call(sprintf('/verify-token/%s', $token));
         return $result['is_active'];
@@ -64,8 +62,7 @@ class virgil_auth_client {
      * @param $token
      * @return array|bool|mixed
      */
-    public function get_user_info_by_token($token)
-    {
+    public function get_user_info_by_token($token) {
 
         $result = $this->call(sprintf('/token/%s/info', $token));
         if(!$result) {

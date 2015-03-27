@@ -1,7 +1,7 @@
 <?php if (!defined('APPLICATION')) exit(); ?>
 
 <?php
-echo '<link rel="stylesheet" type="text/css" href="', Asset('plugins/VirgilPass/views/setting_style.css'),'" />';
+    echo '<link rel="stylesheet" type="text/css" href="', Asset('plugins/VirgilPass/views/setting_style.css'),'" />';
 ?>
 
 <div style="float:left;">
