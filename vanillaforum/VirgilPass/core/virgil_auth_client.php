@@ -53,7 +53,9 @@ class virgil_auth_client {
      */
     public function verify_token($token) {
 
-        $result = $this->call(sprintf('/verify-token/%s', $token));
+        $result = $this->call(
+            sprintf('/verify-token/%s', $token)
+        );
         return $result['is_active'];
     }
 
@@ -64,7 +66,9 @@ class virgil_auth_client {
      */
     public function get_user_info_by_token($token) {
 
-        $result = $this->call(sprintf('/token/%s/info', $token));
+        $result = $this->call(
+            sprintf('/token/%s/info', $token)
+        );
         if(!$result) {
             return false;
         }

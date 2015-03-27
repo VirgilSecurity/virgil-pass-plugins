@@ -2,16 +2,10 @@
     text-align: center;
 }
 
-.virgil-login a {
-    display: inline-block;
-    padding-bottom: 20px;
-}
-
-h3.virgil-or {
-    text-align: center;
-    margin-top: 16px;
-    margin-bottom: 16px;
-}
+    .virgil-login a {
+        display: inline-block;
+        padding-bottom: 20px;
+    }
 
 [data-virgil-ui="auth-btn"] {
     display: block;
@@ -32,8 +26,4 @@ h3.virgil-or {
     cursor: pointer;
     outline: none;
     box-sizing: border-box;
-}
-
-p.virgil-message {
-    margin-top: 10px;
 }

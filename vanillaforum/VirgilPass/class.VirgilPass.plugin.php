@@ -1,5 +1,6 @@
 <?php if (!defined('APPLICATION')) exit();
 session_start();
+
 // Define the plugin:
 $PluginInfo['VirgilPass'] = array(
     'Name' => 'Virgil Pass',
@@ -32,7 +33,7 @@ class VirgilPassPlugin extends Gdn_Plugin {
     /**
      * Add Virgil Pass interface at entry controller Popup.
      */
-    public function EntryController_SignIn_Handler($Sender, $Args) {
+    public function EntryController_SignIn_Handler($Sender) {
 
         if(C('Plugins.VirgilPass.disabled') == 'no') {
 
@@ -54,9 +55,8 @@ class VirgilPassPlugin extends Gdn_Plugin {
     /**
      * Handle before Signin request
      * @param $Sender
-     * @param $Args
      */
-    public function Base_BeforeSignInButton_Handler($Sender, $Args) {
+    public function Base_BeforeSignInButton_Handler($Sender) {
 
         if(($token = GetIncomingValue('token')) !== false) {
 
@@ -208,7 +208,7 @@ class VirgilPassPlugin extends Gdn_Plugin {
     /**
      * Admin Configuration option.
      */
-    public function SettingsController_VirgilPass_Create($Sender, $Args) {
+    public function SettingsController_VirgilPass_Create($Sender) {
 
         $Sender->Permission('Garden.Settings.Manage');
         if ($Sender->Form->IsPostBack()) {

@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d387629-cee5-4b00-8bbc-08614d2a7314" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/joomla/joomla-virgil-component/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/joomla/joomla-virgil-component/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/joomla/joomla-virgil-component/.idea/joomla-virgil-component.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/joomla/joomla-virgil-component/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/joomla/joomla-virgil-component/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/joomla/joomla-virgil-component/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/joomla/joomla-virgil-component/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/joomla/joomla-virgil-component/.idea/workspace.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.php" afterPath="$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.php" />
+    <list default="true" id="0d387629-cee5-4b00-8bbc-08614d2a7314" name="Default" comment="*minor changes according to the profile logic">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vanillaforum/VirgilPass/class.VirgilPass.plugin.php" afterPath="$PROJECT_DIR$/vanillaforum/VirgilPass/class.VirgilPass.plugin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vanillaforum/VirgilPass/login.css" afterPath="$PROJECT_DIR$/vanillaforum/VirgilPass/login.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vanillaforum/VirgilPass/core/virgil_auth_client.php" afterPath="$PROJECT_DIR$/vanillaforum/VirgilPass/core/virgil_auth_client.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="VirgilPlugins.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,37 +28,96 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name=".gitignore" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="class.VirgilPass.plugin.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vanillaforum/VirgilPass/class.VirgilPass.plugin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="102">
+            <state line="59" column="0" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="4065">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mod_virgil_auth.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.php">
+      <file leaf-file-name="virgil_pass.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/virgil_pass.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="442">
+            <state line="274" column="0" selection-start="7734" selection-end="7734" vertical-scroll-proportion="0.3026906" vertical-offset="3720" max-vertical-offset="6180">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helper.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/helper.php">
+      <file leaf-file-name="profile.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/styles/all/js/profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1122">
+            <state line="25" column="2" selection-start="0" selection-end="278919" vertical-scroll-proportion="0.0" vertical-offset="375" max-vertical-offset="465">
+              <folding>
+                <marker date="1422965207000" expanded="false" signature="350:388" placeholder="..." />
+                <marker date="1422965207000" expanded="false" signature="444:475" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/adm/style/settings.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="235" selection-start="774" selection-end="783" vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="1095">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mod_virgil_auth.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.xml">
+      <file leaf-file-name="front.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/styles/all/css/front.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="17" selection-start="3999" selection-end="3999" vertical-scroll-proportion="0.20120482" vertical-offset="1465" max-vertical-offset="2295">
+            <state line="32" column="27" selection-start="240" selection-end="705" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="690">
+              <folding>
+                <marker date="1426864000000" expanded="true" signature="264:707" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/adm/style/css/admin.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/css/profile.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="virgil_auth_client.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/client/virgil_auth_client.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="0" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1290">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="virgil_pass_acp_module.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/acp/virgil_pass_acp_module.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="23" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="5685">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="front.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/css/front.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="27" selection-start="240" selection-end="705" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="645">
               <folding />
             </state>
           </provider>
@@ -85,14 +138,56 @@
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/client/virgil_auth_client.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/config/services.yml" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/adm/style/login.html" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/styles/all/template/event/overall_header_stylesheets_after.html" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/acp/virgil_login_acp_info.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/language/en/backend.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/language/en/frontend.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/migrations/v10x/m2_initial_data.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/migrations/v10x/m3_initial_module.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/ucp/virgil_login_ucp_info.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/migrations/v10x/m1_initial_schema.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/styles/all/template/event/overall_footer_after.html" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/styles/all/js/profile.js" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/event/listener.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/acp/virgil_login_acp_module.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/ucp/virgil_login_ucp_module.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/auth/composer.json" />
+        <option value="$PROJECT_DIR$/wordpress/virgil_auth/virgil_login.php" />
+        <option value="$PROJECT_DIR$/wordpress/virgil_pass/virgil_login.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/config/services.yml" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/styles/all/template/event/overall_footer_after.html" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/styles/all/template/event/overall_header_stylesheets_after.html" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/adm/style/login.html" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/acp/virgil_login_acp_module.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/acp/virgil_login_acp_info.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/client/virgil_auth_client.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/language/en/backend.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/language/en/frontend.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/ucp/virgil_login_ucp_info.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/ucp/virgil_login_ucp_module.php" />
+        <option value="$PROJECT_DIR$/wordpress/virgil_pass/core/virgil_auth_client.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/composer.json" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/migrations/v10x/m3_initial_module.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/ucp/virgil_pass_ucp_module.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/event/listener.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/migrations/v10x/m1_initial_schema.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/migrations/v10x/m2_initial_data.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/styles/all/template/event/overall_header_content_before.html" />
+        <option value="$PROJECT_DIR$/vanillaforum/VirgilPass/class.VirgilPass.plugin.php" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/acp/virgil_pass_acp_module.php" />
+        <option value="$PROJECT_DIR$/wordpress/virgil_pass/virgil_pass.php" />
+        <option value="$PROJECT_DIR$/wordpress/virgil_pass/css/front.css" />
+        <option value="$PROJECT_DIR$/phpbb/virgil/pass/styles/all/css/front.css" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="52" />
     <option name="width" value="1680" />
-    <option name="height" value="974" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -101,7 +196,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
@@ -124,127 +219,17 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="joomla" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mod_virgil_auth" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="joomla" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="joomla-virgil-component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="joomla" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="joomla-virgil-component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="joomla" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="joomla-virgil-component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="site" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VirgilPlugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="joomla" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="joomla-virgil-component" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
+              <option name="myItemId" value="plugins" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -255,6 +240,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FullScreen" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/phpbb/virgil/pass/migrations/v10x" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -273,36 +264,119 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="sslv3">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="0d387629-cee5-4b00-8bbc-08614d2a7314" name="Default" comment="" />
       <created>1422567636194</created>
       <updated>1422567636194</updated>
     </task>
+    <task id="LOCAL-00001" summary="*renaming">
+      <created>1422609874639</created>
+      <updated>1422609874639</updated>
+    </task>
+    <task id="LOCAL-00002" summary="*minor changes according to the profile logic">
+      <created>1422698445570</created>
+      <updated>1422698445570</updated>
+    </task>
+    <task id="LOCAL-00003" summary="*minor changes according to the profile logic">
+      <created>1422872185904</created>
+      <updated>1422872185904</updated>
+    </task>
+    <task id="LOCAL-00004" summary="*minor changes according to the profile logic for phpbb plugin">
+      <created>1422954730850</created>
+      <updated>1422954730850</updated>
+    </task>
+    <task id="LOCAL-00005" summary="*minor changes according to the profile logic">
+      <created>1422965872317</created>
+      <updated>1422965872317</updated>
+    </task>
+    <task id="LOCAL-00006" summary="*minor changes according to the profile logic">
+      <created>1422965981365</created>
+      <updated>1422965981365</updated>
+    </task>
+    <task id="LOCAL-00007" summary="*complete of:&#10;  - final testing&#10;  - code refactoring&#10;  - renaming&#10;  - plugin description">
+      <created>1423171051987</created>
+      <updated>1423171051987</updated>
+    </task>
+    <task id="LOCAL-00008" summary="*changes according to the first time run of plugin">
+      <created>1423239323588</created>
+      <updated>1423239323588</updated>
+    </task>
+    <task id="LOCAL-00009" summary="*initial commit for VanillaForum">
+      <created>1424693617005</created>
+      <updated>1424693617005</updated>
+    </task>
+    <task id="LOCAL-00010" summary="*remove link to the chrome extension">
+      <created>1424710258372</created>
+      <updated>1424710258372</updated>
+    </task>
+    <task id="LOCAL-00011" summary="*working with vanillaform plugin">
+      <created>1424735361544</created>
+      <updated>1424735361544</updated>
+    </task>
+    <task id="LOCAL-00012" summary="*working with with vanillaform plugin">
+      <created>1424798289572</created>
+      <updated>1424798289572</updated>
+    </task>
+    <task id="LOCAL-00013" summary="*working with vanillaforum plugin">
+      <created>1424896938948</created>
+      <updated>1424896938948</updated>
+    </task>
+    <task id="LOCAL-00014" summary="*small improvements&#10;*bug fixing&#10;*code style applied">
+      <created>1426852054285</created>
+      <updated>1426852054285</updated>
+    </task>
+    <task id="LOCAL-00015" summary="*design adjustments">
+      <created>1426872378887</created>
+      <updated>1426872378887</updated>
+    </task>
+    <task id="LOCAL-00016" summary="*code formatting &#10;*solved problem with incorrect login&#10;*other minor changes">
+      <created>1427478098317</created>
+      <updated>1427478098317</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="52" width="1680" height="974" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24969475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33028084" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32959184" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -314,38 +388,305 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="*renaming" />
+    <MESSAGE value="*minor changes according to the profile logic for phpbb plugin" />
+    <MESSAGE value="*minor changes according to the profile logic" />
+    <MESSAGE value="*complete of:&#10;  - final testing&#10;  - code refactoring&#10;  - renaming&#10;  - plugin description" />
+    <MESSAGE value="*changes according to the first time run of plugin" />
+    <MESSAGE value="*initial commit for VanillaForum" />
+    <MESSAGE value="*remove link to the chrome extension" />
+    <MESSAGE value="*working with vanillaform plugin" />
+    <MESSAGE value="*working with with vanillaform plugin" />
+    <MESSAGE value="*working with vanillaforum plugin" />
+    <MESSAGE value="*small improvements&#10;*bug fixing&#10;*code style applied" />
+    <MESSAGE value="*design adjustments" />
+    <MESSAGE value="*code formatting &#10;*solved problem with incorrect login&#10;*other minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="*code formatting &#10;*solved problem with incorrect login&#10;*other minor changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/virgil_pass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="283" column="33" selection-start="9277" selection-end="9277" vertical-scroll-proportion="0.0" vertical-offset="4245" max-vertical-offset="5805" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="830">
-          <folding />
-        </state>
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="442">
-          <folding />
-        </state>
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="390" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/helper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="17" selection-start="3999" selection-end="3999" vertical-scroll-proportion="0.20120482" vertical-offset="1465" max-vertical-offset="2295">
+        <state line="33" column="39" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="2025" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="390" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="22" selection-start="509" selection-end="509" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="2025" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="390" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="990" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="17" selection-start="3999" selection-end="3999" vertical-scroll-proportion="0.0" vertical-offset="1440" max-vertical-offset="2025" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="39" selection-start="1208" selection-end="1208" vertical-scroll-proportion="0.31318682" vertical-offset="210" max-vertical-offset="2025" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/helper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1122" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/mod_virgil_auth/mod_virgil_auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="6" selection-end="6" vertical-scroll-proportion="0.016930023" vertical-offset="0" max-vertical-offset="886" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="7" selection-start="7" selection-end="7" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="830" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/readme.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/license.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="15" selection-start="25" selection-end="25" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/language/en/frontend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="19" selection-start="139" selection-end="139" vertical-scroll-proportion="-2.5" vertical-offset="0" max-vertical-offset="405" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/acp/virgil_pass_acp_info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="3" selection-start="7" selection-end="144" vertical-scroll-proportion="0.15463917" vertical-offset="0" max-vertical-offset="582" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/core/virgil_auth_client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="8" selection-start="939" selection-end="939" vertical-scroll-proportion="0.5157025" vertical-offset="288" max-vertical-offset="1110" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/migrations/v10x/m3_initial_module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="26" selection-start="447" selection-end="447" vertical-scroll-proportion="0.35560346" vertical-offset="0" max-vertical-offset="928" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/migrations/v10x/m1_initial_schema.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="5" selection-start="409" selection-end="409" vertical-scroll-proportion="0.0" vertical-offset="285" max-vertical-offset="765" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/migrations/v10x/m2_initial_data.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="24" selection-start="803" selection-end="803" vertical-scroll-proportion="0.38793105" vertical-offset="0" max-vertical-offset="928" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/event/listener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="96" column="109" selection-start="2210" selection-end="2234" vertical-scroll-proportion="1.054054" vertical-offset="756" max-vertical-offset="2100" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="48" selection-start="307" selection-end="333" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="510" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/drupal/mod_virgil_auth/js/sdk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="379" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="2" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="180" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/joomla/joomla-virgil-component/site/assets/js/sdk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="379" selection-start="379" selection-end="379" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/styles/all/template/event/overall_header_content_before.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="20" selection-start="503" selection-end="503" vertical-scroll-proportion="0.19889502" vertical-offset="0" max-vertical-offset="905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/styles/all/template/event/overall_header_stylesheets_after.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="30" selection-start="30" selection-end="30" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/styles/all/template/event/overall_footer_after.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="14" selection-start="150" selection-end="150" vertical-scroll-proportion="0.03314917" vertical-offset="0" max-vertical-offset="905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/ucp/virgil_pass_ucp_module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="4" selection-start="252" selection-end="252" vertical-scroll-proportion="0.21546961" vertical-offset="0" max-vertical-offset="905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/ucp/virgil_pass_ucp_info.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="19" selection-start="140" selection-end="140" vertical-scroll-proportion="0.08287293" vertical-offset="0" max-vertical-offset="905" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/styles/all/js/profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="2" selection-start="0" selection-end="278919" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <folding>
+            <marker date="1422965207000" expanded="false" signature="350:388" placeholder="..." />
+            <marker date="1422965207000" expanded="false" signature="444:475" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/adm/style/css/admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="929">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/css/profile.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="931">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/client/virgil_auth_client.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="0" selection-start="145" selection-end="145" vertical-scroll-proportion="0.0" vertical-offset="105" max-vertical-offset="1290">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/acp/virgil_pass_acp_module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="23" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0" vertical-offset="435" max-vertical-offset="5685">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/css/front.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="27" selection-start="240" selection-end="705" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="645">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/styles/all/css/front.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="27" selection-start="240" selection-end="705" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
+          <folding>
+            <marker date="1426864000000" expanded="true" signature="264:707" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/language/en/backend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="37" selection-start="600" selection-end="607" vertical-scroll-proportion="0.29768467" vertical-offset="0" max-vertical-offset="907" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phpbb/virgil/pass/adm/style/settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="235" selection-start="774" selection-end="783" vertical-scroll-proportion="0.0" vertical-offset="201" max-vertical-offset="1095">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vanillaforum/VirgilPass/class.VirgilPass.plugin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="59" column="0" selection-start="1870" selection-end="1870" vertical-scroll-proportion="0.0" vertical-offset="885" max-vertical-offset="4065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wordpress/virgil_pass/virgil_pass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="274" column="0" selection-start="7734" selection-end="7734" vertical-scroll-proportion="0.3026906" vertical-offset="3720" max-vertical-offset="6180">
           <folding />
         </state>
       </provider>
