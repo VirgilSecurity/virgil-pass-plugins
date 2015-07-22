@@ -34,7 +34,7 @@ class virgil_core {
         return array(
             'redirect_url' => get_option('siteurl') . '/wp-login.php?token={{virgilToken}}',
             'sdk_url'      => 'https://auth-demo.virgilsecurity.com/js/sdk.js',
-            'auth_url'     => 'https://auth.virgilsecurity.com'
+            'auth_url'     => 'https://auth-stg.virgilsecurity.com/api/v1'
         );
     }
 

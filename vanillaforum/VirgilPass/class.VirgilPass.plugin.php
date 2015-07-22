@@ -260,7 +260,7 @@ class VirgilPassPlugin extends Gdn_Plugin {
         SaveToConfig('Plugins.VirgilPass.stopUseVirgil', 'no');
         SaveToConfig('Plugins.VirgilPass.disabled', 'no');
         SaveToConfig('Plugins.VirgilPass.redirectUrl', $location . '?token={{virgilToken}}');
-        SaveToConfig('Plugins.VirgilPass.sdkUrl', 'https://auth-demo.virgilsecurity.com/js/sdk.js');
-        SaveToConfig('Plugins.VirgilPass.authUrl', 'https://auth.virgilsecurity.com');
+        SaveToConfig('Plugins.VirgilPass.sdkUrl',  'https://auth-demo.virgilsecurity.com/js/sdk.js');
+        SaveToConfig('Plugins.VirgilPass.authUrl', 'https://auth-stg.virgilsecurity.com/api/v1');
     }
 }

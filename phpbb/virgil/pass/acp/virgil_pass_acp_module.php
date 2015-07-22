@@ -71,7 +71,7 @@ class virgil_pass_acp_module
 		// Virgil Auth settings
         $virgil_pass_redirect_url = (isset ($config ['virgil_pass_redirect_url']) ? $config ['virgil_pass_redirect_url'] : $config ['server_protocol'] . $config ['server_name'] . '/ucp.php?mode=login&token={{virgilToken}}');
         $virgil_pass_sdk_url      = (isset ($config ['virgil_pass_sdk_url'])      ? $config ['virgil_pass_sdk_url']      : 'https://auth-demo.virgilsecurity.com/js/sdk.js');
-        $virgil_pass_auth_url     = (isset ($config ['virgil_pass_auth_url'])     ? $config ['virgil_pass_auth_url']     : 'https://auth.virgilsecurity.com');
+        $virgil_pass_auth_url     = (isset ($config ['virgil_pass_auth_url'])     ? $config ['virgil_pass_auth_url']     : 'https://auth-stg.virgilsecurity.com/api/v1');
 
 		// Triggers a form message.
 		$virgil_pass_settings_saved = false;
@@ -90,7 +90,7 @@ class virgil_pass_acp_module
 
             $virgil_pass_redirect_url = !empty($virgil_pass_redirect_url) ? $virgil_pass_redirect_url : $config ['server_protocol'] . $config ['server_name'] . '/ucp.php?mode=login&token={{virgilToken}}';
             $virgil_pass_sdk_url      = !empty($virgil_pass_sdk_url)      ? $virgil_pass_sdk_url      : 'https://auth-demo.virgilsecurity.com/js/sdk.js';
-            $virgil_pass_auth_url     = !empty($virgil_pass_auth_url)     ? $virgil_pass_auth_url     : 'https://auth.virgilsecurity.com';
+            $virgil_pass_auth_url     = !empty($virgil_pass_auth_url)     ? $virgil_pass_auth_url     : 'https://auth-stg.virgilsecurity.com/api/v1';
 
             // Save configuration.
 			$config->set ('virgil_pass_disable', $virgil_pass_disable);
