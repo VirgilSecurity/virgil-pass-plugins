@@ -1,7 +1,8 @@
 <?php
 
 const RESPONSE_CODE_OK = 200;
-const VIRGIL_BASE_URL = 'https://auth.virgilsecurity.com';
+const VIRGIL_BASE_URL   = 'https://auth-stg.virgilsecurity.com/api/v1';
+const VIRGIL_JS_SDK_URL = 'https://auth-demo.virgilsecurity.com/js/sdk.js';
 
 /**
  * Implements hook_menu().
@@ -26,7 +27,7 @@ function mod_virgil_auth_form_user_login_alter(&$form, &$form_state) {
 }
 
 function _mod_virgil_auth_user_login_form_alter(&$form, &$form_state) {
-    drupal_add_js(drupal_get_path('module', 'mod_virgil_auth') .'/js/sdk.js');
+    drupal_add_js(VIRGIL_JS_SDK_URL, 'external');
 
     $items = array();
     $items[] = array(

@@ -6,7 +6,7 @@ jimport('joomla.application.component.controller');
 
 class VirgilAuthController extends JControllerLegacy
 {
-    const VIRGIL_BASE_URL = 'https://auth.virgilsecurity.com';
+    const VIRGIL_BASE_URL = 'https://auth-stg.virgilsecurity.com/api/v1';
 
     public function login() {
         $httpClient = JHttpFactory::getHttp();

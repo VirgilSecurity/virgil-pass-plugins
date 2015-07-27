@@ -15,7 +15,6 @@
 		<filename>index.html</filename>
 		<filename>controller.php</filename>
 		<filename>virgilauth.php</filename>
-        <filename>assets/js/sdk.js</filename>
 	</files>
 
 	<administration>
