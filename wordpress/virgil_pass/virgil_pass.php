@@ -76,7 +76,7 @@ class virgil_pass extends virgil_core {
     public function init() {
 
         wp_enqueue_script('jquery');
-        wp_enqueue_script('virgil_sdk', 'http://wordpress.virgilsecurity.local/wp-content/plugins/virgil_pass/js/pass-runtime.js');
+        wp_enqueue_script('virgil_sdk', get_option('siteurl') . '/wp-content/plugins/virgil_pass/js/pass-runtime.js');
 
         wp_enqueue_style('front_css', $this->get_plugin_url() . '/css/front.css');
     }
