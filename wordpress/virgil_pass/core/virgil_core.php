@@ -32,9 +32,10 @@ class virgil_core {
     public function get_default_options() {
 
         return array(
-            'redirect_url' => get_option('siteurl') . '/wp-login.php?token={{virgilToken}}',
-            'sdk_url'      => 'https://auth-demo.virgilsecurity.com/js/sdk.js',
-            'auth_url'     => 'https://auth-stg.virgilsecurity.com/api/v1'
+            'redirect_url' => get_option('siteurl') . '/wp-login.php?token={token}&virgil_card_id={virgil_card_id}',
+            'sdk_url'      => 'http://wordpress.virgilsecurity.local/wp-content/plugins/virgil_pass/js/pass-runtime.js',
+            'resource_url' => 'https://demo-resource-service-stg.virgilsecurity.com',
+            'auth_url'     => 'https://auth-stg.virgilsecurity.com/v3'
         );
     }
 

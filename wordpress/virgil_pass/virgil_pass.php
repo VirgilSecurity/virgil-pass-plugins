@@ -76,7 +76,7 @@ class virgil_pass extends virgil_core {
     public function init() {
 
         wp_enqueue_script('jquery');
-        wp_enqueue_script('virgil_sdk', 'https://auth-demo.virgilsecurity.com/js/sdk.js');
+        wp_enqueue_script('virgil_sdk', 'http://wordpress.virgilsecurity.local/wp-content/plugins/virgil_pass/js/pass-runtime.js');
 
         wp_enqueue_style('front_css', $this->get_plugin_url() . '/css/front.css');
     }
@@ -123,7 +123,7 @@ class virgil_pass extends virgil_core {
 
         echo '
         <p class="virgil-login">
-            <button data-virgil-ui="auth-btn" data-virgil-reference="' . $this->options['redirect_url'] . '">Virgil Auth</button>
+            <button data-virgil-ui="auth-btn" data-virgil-app-id="com.virgilsecurity.auth"  data-virgil-callback-url="' . $this->options['redirect_url'] . '">Virgil with Auth</button>
         </p>';
 
         wp_enqueue_script(
@@ -225,14 +225,14 @@ class virgil_pass extends virgil_core {
                 <input id="virgil_redirect_url" class="textinput" name="<?php echo $this->get_options_name()?>[redirect_url]" size="68" type="text" value="<?php echo $this->options['redirect_url']?>"/>
                 <br class="clear" />
                 <p class="desc big">URL where the system is redirected after successful authentication</p>
-                <label for="virgil_sdk_url" class="textinput big">Virgil SDK URL:</label>
-                <input id="virgil_sdk_url" class="textinput" name="<?php echo $this->get_options_name()?>[sdk_url]" size="68" type="text" value="<?php echo $this->options['sdk_url']?>" />
-                <br class="clear" />
-                <p class="desc big">Virgil JavaScript SDK URL</p>
                 <label for="virgil_auth_url" class="textinput big">Virgil Auth URL:</label>
                 <input id="virgil_auth_url" class="textinput" name="<?php echo $this->get_options_name()?>[auth_url]" size="68" type="text" value="<?php echo $this->options['auth_url']?>" />
                 <br class="clear" />
                 <p class="desc big">Virgil Authentication service URL</p>
+                <label for="virgil_auth_url" class="textinput big">Virgil Resource URL:</label>
+                <input id="virgil_auth_url" class="textinput" name="<?php echo $this->get_options_name()?>[resource_url]" size="68" type="text" value="<?php echo $this->options['resource_url']?>" />
+                <br class="clear" />
+                <p class="desc big">Virgil Resource service URL</p>
                 <p class="submit">
                     <input type="submit" value="Save Changes" class="button button-primary" id="submit" name="submit">
                 </p>
@@ -271,47 +271,56 @@ class virgil_pass extends virgil_core {
      */
     public function login_redirect($redirect_to, $request_from, $user) {
 
-        if (is_wp_error($user) && isset($_REQUEST['token'])) {
+        if (is_wp_error($user) && isset($_REQUEST['token']) && isset($_REQUEST['virgil_card_id'])) {
 
             $token = $_REQUEST['token'];
+            $virgilCardId = $_REQUEST['virgil_card_id'];
             if(!$token) {
                 $error = new WP_Error('virgil_empty_token', "Virgil token was not provided correctly.");
                 return $this->displayAndReturnError($error);
             }
 
             $this->setIncludePath();
-            if (!class_exists('virgil_auth_client')) {
-                require_once('core/virgil_auth_client.php' );
+
+            if(!class_exists('virgil_auth_client')) {
+                require_once('client/virgil_auth_client.php' );
                 $virgil_auth_client = new virgil_auth_client($this->options);
             }
 
-            if($virgil_auth_client->verify_token($token) == false) {
-                $error = new WP_Error('virgil_wrong_token', "Virgil token was incorrect or has expired.");
+            $accessToken = $virgil_auth_client->obtain_access_code($token);
+            if($accessToken === false) {
+                $error = new WP_Error('virgil_wrong_token', "Impossible to obtain Authorization Grant token on Access Token.");
                 return $this->displayAndReturnError($error);
             }
 
-            if(($userInfo = $virgil_auth_client->get_user_info_by_token($token)) == false) {
-                $error = new WP_Error('virgil_user_not_found', "User was not found by Virgil auth token.");
+            if (!class_exists('virgil_resource_client')) {
+                require_once('client/virgil_resource_client.php' );
+                $virgil_resource_client = new virgil_resource_client($this->options);
+            }
+
+            $resourceData = $virgil_resource_client->get_resource_data($accessToken, $virgilCardId);
+            if($resourceData === false) {
+                $error = new WP_Error('virgil_wrong_token', "Identity data not found.");
                 return $this->displayAndReturnError($error);
             }
 
-            if(!isset($userInfo['first_name']) &&  !isset($userInfo['last_name'])) {
-                list($userName, $userDomain) = explode('@', $userInfo['email']);
+            if(!isset($resourceData['first_name']) &&  !isset($resourceData['last_name'])) {
+                list($userName, $userDomain) = explode('@', $resourceData['email']);
             } else {
-                $userName = $userInfo['first_name'] . ' ' . $userInfo['last_name'];
+                $userName = $resourceData['first_name'] . ' ' . $resourceData['last_name'];
             }
 
             // If everything fine, then register new user or log in.
-            if (email_exists($userInfo['email']) == false) {
+            if (email_exists($resourceData['email']) == false) {
                 $password = wp_generate_password($length = 12, $include_standard_special_chars = false);
-                wp_create_user($userName, $password, $userInfo['email']);
+                wp_create_user($userName, $password, $resourceData['email']);
             } else {
-                $user = get_user_by('email', $userInfo['email'])->to_array();
+                $user = get_user_by('email', $resourceData['email'])->to_array();
                 $password = wp_generate_password($length = 12, $include_standard_special_chars = false);
                 wp_set_password($password, $user['ID']);
             }
 
-            $user = get_user_by('email', $userInfo['email']);
+            $user = get_user_by('email', $resourceData['email']);
 
             // Update Virgil Auth state
             $this->setVirgilImplemented($user, 1);
