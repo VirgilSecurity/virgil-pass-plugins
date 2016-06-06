@@ -50,7 +50,6 @@ class virgil_http_client {
         $data = curl_exec($ch);
         $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
-        var_dump($data, $code);
         return ($code >= 200 && $code < 300) ? json_decode($data, true) : false;
     }
 }
